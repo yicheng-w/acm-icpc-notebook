@@ -12,10 +12,11 @@
 using namespace std;
 
 typedef pair<int, int> edge;
-#define GET_DIST(E) E.first;
-#define GET_LENGTH(E) E.second;
+#define GET_DIST(E) E.first
+#define GET_LENGTH(E) E.second
 typedef vector<vector<edge> > edge_list;
 typedef pair<int, int> vertex_priority;
+#define BIG_NUMBER 99999 // can't use int_max because floyd warshall requires adding
 
 class vertex_comp {
   public:
@@ -30,10 +31,15 @@ class Graph {
     int V; // number of vertices
     edge_list E;
   public:
+    // graph.cpp
     Graph(int V);
     void add_edge(int from, int to, int len);
+    vector<int> topological_sort();
+    // dijkstra.cpp
     int dijkstras(int s, int t);
     list<int> dijkstras_path(int s, int t);
+    // floyd_warshall.cpp
+    int **floyd_warshall();
 };
 
 #endif // GRAPH_H
