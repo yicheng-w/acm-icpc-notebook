@@ -58,7 +58,7 @@ int gcd(int a, int b){
  * divided by their greatest common factor
  */
 int lcm(int a, int b){
-    return a * b / gcd(a, b);
+    return a / gcd(a, b) * b;
 }
 
 /* egcd: extended euclidean algorithm
