@@ -30,7 +30,7 @@ int Graph::dijkstras(int s, int t) {
 
     vertex_set[s].second = 0;
 
-    dijkstra_queue frontier;
+    vertex_cost_queue frontier;
 
     frontier.push(vertex_set[s]);
 
@@ -74,7 +74,7 @@ list<int> Graph::dijkstras_path(int s, int t) {
 
     vertex_set[s].second = 0;
 
-    dijkstra_queue frontier;
+    vertex_cost_queue frontier;
 
     frontier.push(vertex_set[s]);
 

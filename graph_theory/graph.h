@@ -8,6 +8,7 @@
 #include <climits>
 #include <queue>
 #include <list>
+#include <set>
 
 using namespace std;
 
@@ -25,8 +26,20 @@ class vertex_comp {
     }
 };
 
-typedef priority_queue<vertex_priority, vector<vertex_priority>, vertex_comp> dijkstra_queue;
+typedef priority_queue<vertex_priority, vector<vertex_priority>, vertex_comp> vertex_cost_queue;
 
+class Undirected_Graph {
+    int V;
+    int **E;
+  public:
+    Undirected_Graph(int V);
+    Undirected_Graph(int V, int **E);
+    void add_edge(int from, int to, int len);
+    int MST();
+    int **MST_tree();
+};
+
+// directed graph
 class Graph {
     int V; // number of vertices
     edge_list E;
