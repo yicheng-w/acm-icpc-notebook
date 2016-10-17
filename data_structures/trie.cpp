@@ -95,9 +95,6 @@ class trie{
         */
         void tester()
         {
-            ios::sync_with_stdio(0);
-            cin.tie(0);
-
             int n, m;
             string tempWord;
             trie trieImpl;
