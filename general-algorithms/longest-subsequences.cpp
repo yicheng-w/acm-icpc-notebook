@@ -30,155 +30,79 @@
 using namespace std;
 
 template <typename T>
-class longest_subsequence
+vector<T> longest_increasing_subsequence(vector <T> &n) //returns LIS in O(NlogN) time, and O(N) memory where N is the size of the input vector
 {
-    struct comparator
+    int sz = n.size();
+    if (sz == 0)
     {
-        string type;
-        comparator(string type)
+        return {};
+    }
+    vector <pair<T, int>> lis; //binary sorted list containing {value, index} pairs
+    vector <int> prev(sz, -1); //list containing previous index for each element in n
+
+
+    int maxLen = 0; //len is 0-indexed
+    lis.PB({n[0], 0});
+
+    for (int i = 1; i < sz; i++)
+    {
+        int len = lower_bound(all(lis), make_pair(n[i], i), [](pair<T, int> left, pair <T, int> right) -> bool {return left.first < right.first;}) - lis.begin(); // < strictly inc, > strictly dec, <= non-dec, >= non-inc
+
+        if (len >= lis.size())
         {
-            this -> type = type;
+            lis.PB({n[i], i});
         }
-        bool operator()(pair <T, int> left, pair <T, int> right)
+        else
         {
-            if (type == "strictly_dec")
-            {
-                return left.first > right.first;
-            }
-            else if (type == "non_dec")
-            {
-                return left.first <= right.first;
-            }
-            else if (type == "non_inc")
-            {
-                return left.first >= right.first;
-            }
-            else //default case is strictly increasing
-            {
-                return left.first < right.first;
-            }
-
+            lis[len] = {n[i], i};
         }
-    };
+        prev[i] = lis[len - 1].second;
+        maxLen = max(maxLen, len);
+    }
 
-    private:
-        vector <T> sequence;
-        string comparator_type = "";
+    int currInd = lis[maxLen].second;
+    vector <T> sol(++maxLen); //we want 1-indexed (actual) maxLen now
 
-    public:
-        longest_subsequence(string comparator_type)
-        {
-            this -> comparator_type = comparator_type;
-        }
+    REP(i, maxLen)
+    {
+        sol[maxLen - i - 1] = n[currInd];
+        currInd = prev[currInd];
+    }
 
-        void setType(string comparator_type)
-        {
-            this -> comparator_type = comparator_type;
-        }
+    return sol;
+}
 
-        void setSequence(vector <T> sequence)
-        {
-            this -> sequence = sequence;
-        }
+void tester()
+{
+    int n;
+    int t;
+    cin>>n;
+    vector <int> num_list(n);
+    REP(i, n)
+    {
+        cin>>t;
+        num_list[i] = t;
+    }
 
-        vector <T> getSequence()
-        {
-            return this -> sequence;
-        }
+    auto test = longest_increasing_subsequence(num_list);
+    for (auto elem: test)
+    {
+        cout<<elem<<" ";
+    }
+    cout<<newl;
+
+}
 
 
-        vector <T> compute_subsequence()
-        {
-            int sz = sequence.size();
-            if (sz == 0)
-            {
-                return {};
-            }
+int main()
+{
+    //freopen("/Users/Mac/Desktop/input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-            vector <pair<T, int>> value_index;
-            vi prev(sz, -1);
+    tester();
 
-            int maxLen = 0;
-            value_index.PB({sequence[0], 0});
 
-            longest_subsequence::comparator compareObj(comparator_type);
-
-            for (int i = 1; i < sz; i++)
-            {
-                int len = lower_bound(all(value_index), make_pair(sequence[i], i), compareObj) - value_index.begin();
-                if (len >= value_index.size())
-                {
-                    value_index.PB({sequence[i], i});
-                }
-                else
-                {
-                    value_index[len] = {sequence[i], i};
-                }
-                prev[i] = value_index[len - 1].second;
-                maxLen = max(maxLen, len);
-            }
-
-            int currInd = value_index[maxLen].second;
-            vector <T> subsequence(++maxLen);
-
-            REP(i, maxLen)
-            {
-                subsequence[maxLen - i - 1] = sequence[currInd];
-                currInd = prev[currInd];
-            }
-
-            return subsequence;
-        }
-
-        int compute_length()
-        {
-            int sz = sequence.size();
-            if (sz == 0)
-            {
-                return 0;
-            }
-
-            vector <pair<T, int>> value_index;
-
-            int maxLen = 0;
-            value_index.PB({sequence[0], 0});
-
-            longest_subsequence::comparator compareObj(comparator_type);
-
-            for (int i = 1; i < sz; i++)
-            {
-                int len = lower_bound(all(value_index), make_pair(sequence[i], i), compareObj) - value_index.begin();
-                if (len >= value_index.size())
-                {
-                    value_index.PB({sequence[i], i});
-                }
-                else
-                {
-                    value_index[len] = {sequence[i], i};
-                }
-                maxLen = max(maxLen, len);
-            }
-            return ++maxLen;
-        }
-
-        void tester()
-        {
-            int n;
-            cin>>n;
-            vector <T> num_list(n);
-            REP(i, n)
-            {
-                cin>>num_list[i];
-            }
-
-            setSequence(num_list);
-
-            for (T elem: compute_subsequence())
-            {
-                cout<<elem<<" ";
-            }
-            cout<<newl;
-            setType("non_dec");
-            cout<<compute_length()<<newl;
-        }
-};
+    return 0;
+}
