@@ -89,31 +89,32 @@ class trie{
             }
             return tc[v].we;
         }
-
-        /* input: insert n words into trie, then make m queries
-        *  output: whether any of the queries are found or not
-        */
-        void tester()
-        {
-            int n, m;
-            string tempWord;
-
-            cin>>n;
-            cin.get();
-
-            REP(i, n)
-            {
-                getline(cin, tempWord);
-                this -> addWord(tempWord);
-            }
-
-            cin>>m;
-            cin.get();
-
-            REP(i, m)
-            {
-                getline(cin, tempWord);
-                cout<<(this -> findWord(tempWord) ? "found" : "not found")<<newl;
-            }
-        }
 };
+
+/* input: insert n words into trie, then make m queries
+*  output: whether any of the queries are found or not
+*/
+void tester()
+{
+    int n, m;
+    string tempWord;
+    trie timpl = trie();
+
+    cin>>n;
+    cin.get();
+
+    REP(i, n)
+    {
+        getline(cin, tempWord);
+        timpl.addWord(tempWord);
+    }
+
+    cin>>m;
+    cin.get();
+
+    REP(i, m)
+    {
+        getline(cin, tempWord);
+        cout<<(timpl.findWord(tempWord) ? "found" : "not found")<<newl;
+    }
+}
