@@ -97,7 +97,6 @@ class trie{
         {
             int n, m;
             string tempWord;
-            trie trieImpl;
 
             cin>>n;
             cin.get();
@@ -105,7 +104,7 @@ class trie{
             REP(i, n)
             {
                 getline(cin, tempWord);
-                trieImpl.addWord(tempWord);
+                this -> addWord(tempWord);
             }
 
             cin>>m;
@@ -114,7 +113,7 @@ class trie{
             REP(i, m)
             {
                 getline(cin, tempWord);
-                cout<<(trieImpl.findWord(tempWord) ? "found" : "not found")<<newl;
+                cout<<(this -> findWord(tempWord) ? "found" : "not found")<<newl;
             }
         }
 };
