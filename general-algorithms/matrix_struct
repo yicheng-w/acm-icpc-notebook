@@ -1,0 +1,20 @@
+//pulled directly from DanAlex's cf blog
+
+struct matrix {
+  // N is the size of the matrix
+  int m[N][N];
+  matrix()
+  {
+     memset(m,0,sizeof(m));
+  } 
+  matrix operator * (matrix b)
+  {
+     matrix c = matrix();
+     for (int i = 0; i < N; ++i)
+       for (int j = 0; j < N; ++j)
+         for (int k = 0; k < N; ++k) 
+           c.m[i][j] = (c.m[i][j] + 1LL * m[i][k] * b.m[k][j]) % M;
+     return c;
+  }
+  
+};
