@@ -1,0 +1,875 @@
+%!PS-Adobe-3.0
+%%Title: math.cpp
+%%For: yicheng-wang
+%%Creator: NVIM v0.1.3-128-gf887037
+%%CreationDate: Tue Nov  1 11:01:20 2016
+%%DocumentData: Clean8Bit
+%%Orientation: Portrait
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%BoundingBox: 61 42 529 752
+%%DocumentMedia: letter 612 792 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%DocumentSuppliedResources: procset VIM-Prolog 1.4 1
+%%+ encoding VIM-latin1 1.0 0
+%%Requirements: duplex collate color
+%%EndComments
+%%BeginDefaults
+%%PageResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%PageMedia: letter
+%%EndDefaults
+%%BeginProlog
+%%BeginResource: procset VIM-Prolog
+%%BeginDocument: /usr/local/share/nvim/runtime/print/prolog.ps
+%!PS-Adobe-3.0 Resource-ProcSet
+%%Title: VIM-Prolog
+%%Version: 1.4 1
+%%EndComments
+% Editing of this file is NOT RECOMMENDED.  You run a very good risk of causing
+% all PostScript printing from VIM failing if you do.  PostScript is not called
+% a write-only language for nothing!
+/packedarray where not{userdict begin/setpacking/pop load def/currentpacking
+false def end}{pop}ifelse/CP currentpacking def true setpacking
+/bd{bind def}bind def/ld{load def}bd/ed{exch def}bd/d/def ld
+/db{dict begin}bd/cde{currentdict end}bd
+/T true d/F false d
+/SO null d/sv{/SO save d}bd/re{SO restore}bd
+/L2 systemdict/languagelevel 2 copy known{get exec}{pop pop 1}ifelse 2 ge d
+/m/moveto ld/s/show ld /ms{m s}bd /g/setgray ld/r/setrgbcolor ld/sp{showpage}bd
+/gs/gsave ld/gr/grestore ld/cp/currentpoint ld
+/ul{gs UW setlinewidth cp UO add 2 copy newpath m 3 1 roll add exch lineto
+stroke gr}bd
+/bg{gs r cp BO add 4 -2 roll rectfill gr}bd
+/sl{90 rotate 0 exch translate}bd
+L2{
+/sspd{mark exch{setpagedevice}stopped cleartomark}bd
+/nc{1 db/NumCopies ed cde sspd}bd
+/sps{3 db/Orientation ed[3 1 roll]/PageSize ed/ImagingBBox null d cde sspd}bd
+/dt{2 db/Tumble ed/Duplex ed cde sspd}bd
+/c{1 db/Collate ed cde sspd}bd
+}{
+/nc{/#copies ed}bd
+/sps{statusdict/setpage get exec}bd
+/dt{statusdict/settumble 2 copy known{get exec}{pop pop pop}ifelse
+statusdict/setduplexmode 2 copy known{get exec}{pop pop pop}ifelse}bd
+/c{pop}bd
+}ifelse
+/ffs{findfont exch scalefont d}bd/sf{setfont}bd
+/ref{1 db findfont dup maxlength dict/NFD ed{exch dup/FID ne{exch NFD 3 1 roll
+put}{pop pop}ifelse}forall/Encoding findresource dup length 256 eq{NFD/Encoding
+3 -1 roll put}{pop}ifelse NFD dup/FontType get 3 ne{/CharStrings}{/CharProcs}
+ifelse 2 copy known{2 copy get dup maxlength dict copy[/questiondown/space]{2
+copy known{2 copy get 2 index/.notdef 3 -1 roll put pop exit}if pop}forall put
+}{pop pop}ifelse dup NFD/FontName 3 -1 roll put NFD definefont pop end}bd
+CP setpacking
+(\004)cvn{}bd
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%BeginResource: encoding VIM-latin1
+%%BeginDocument: /usr/local/share/nvim/runtime/print/latin1.ps
+%!PS-Adobe-3.0 Resource-Encoding
+%%Title: VIM-latin1
+%%Version: 1.0 0
+%%EndComments
+/VIM-latin1[
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/grave /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]
+/Encoding defineresource pop
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%EndProlog
+%%BeginSetup
+612 792 0 sps
+1 nc
+T F dt
+T c
+%%IncludeResource: font Courier
+/_F0 /VIM-latin1 /Courier ref
+/F0 10 /_F0 ffs
+%%IncludeResource: font Courier-Bold
+/_F1 /VIM-latin1 /Courier-Bold ref
+/F1 10 /_F1 ffs
+%%IncludeResource: font Courier-Oblique
+/_F2 /VIM-latin1 /Courier-Oblique ref
+/F2 10 /_F2 ffs
+%%IncludeResource: font Courier-BoldOblique
+/_F3 /VIM-latin1 /Courier-BoldOblique ref
+/F3 10 /_F3 ffs
+/UO -1 d
+/UW 0.5 d
+/BO -2.5 d
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+0 g
+(math.cpp                                                                        Page 1)61.2 744.9 ms
+F0 sf
+0.498 0.125 0.498 r
+(     1)61.2 724.9 ms
+(#include )109.2 724.9 ms
+0 g
+(<cmath>)s
+0.498 0.125 0.498 r
+(     2)61.2 714.9 ms
+(#include )109.2 714.9 ms
+0 g
+(<iostream>)s
+0.498 0.125 0.498 r
+(     3)61.2 704.9 ms
+(     4)61.2 694.9 ms
+0.498 0.498 0 r
+(using)109.2 694.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(namespace)s
+0 g
+( )s
+0.376 g
+(std)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(     5)61.2 684.9 ms
+(     6)61.2 674.9 ms
+0 0.125 0.251 r
+(/* sum_to: returns the sum of numbers from 1-n)109.2 674.9 ms
+0.498 0.125 0.498 r
+(     7)61.2 664.9 ms
+0 0.125 0.251 r
+( * sum of numbers from 1-n is given by \(n\)\(n+1\)/2)109.2 664.9 ms
+0.498 0.125 0.498 r
+(     8)61.2 654.9 ms
+0 0.125 0.251 r
+( */)109.2 654.9 ms
+0.498 0.125 0.498 r
+(     9)61.2 644.9 ms
+(int)109.2 644.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(sum_to)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( n\){)s
+0.498 0.125 0.498 r
+(    10)61.2 634.9 ms
+0 g
+(    )109.2 634.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( \(n\) * \()s
+0.376 g
+(1)s
+0 g
+( + n\) / )s
+0.376 g
+(2)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    11)61.2 624.9 ms
+0 g
+(})109.2 624.9 ms
+0.498 0.125 0.498 r
+(    12)61.2 614.9 ms
+(    13)61.2 604.9 ms
+0 0.125 0.251 r
+(/* sum_of_squares: returns the sum of squares from 1-n)109.2 604.9 ms
+0.498 0.125 0.498 r
+(    14)61.2 594.9 ms
+0 0.125 0.251 r
+( * sum of squares from 1-n is \(n\)\(n+1\)\(2n+1\)/6)109.2 594.9 ms
+0.498 0.125 0.498 r
+(    15)61.2 584.9 ms
+0 0.125 0.251 r
+( */)109.2 584.9 ms
+0.498 0.125 0.498 r
+(    16)61.2 574.9 ms
+(int)109.2 574.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(sum_of_squares)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( n\){)s
+0.498 0.125 0.498 r
+(    17)61.2 564.9 ms
+0 g
+(    )109.2 564.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( n * \(n + )s
+0.376 g
+(1)s
+0 g
+(\) * \()s
+0.376 g
+(2)s
+0 g
+( * n + )s
+0.376 g
+(1)s
+0 g
+(\) / )s
+0.376 g
+(6)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    18)61.2 554.9 ms
+0 g
+(})109.2 554.9 ms
+0.498 0.125 0.498 r
+(    19)61.2 544.9 ms
+(    20)61.2 534.9 ms
+0 0.125 0.251 r
+(/* sum_of_cubes: returns the sum of cubes from 1-n)109.2 534.9 ms
+0.498 0.125 0.498 r
+(    21)61.2 524.9 ms
+0 0.125 0.251 r
+( * the sum of cubes from 1-n is the square of the sum from 1-n)109.2 524.9 ms
+0.498 0.125 0.498 r
+(    22)61.2 514.9 ms
+0 0.125 0.251 r
+( */)109.2 514.9 ms
+0.498 0.125 0.498 r
+(    23)61.2 504.9 ms
+(int)109.2 504.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(sum_of_cubes)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( n\){)s
+0.498 0.125 0.498 r
+(    24)61.2 494.9 ms
+0 g
+(    )109.2 494.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( sum = n * \(n + )s
+0.376 g
+(1)s
+0 g
+(\) / )s
+0.376 g
+(2)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    25)61.2 484.9 ms
+0 g
+(    )109.2 484.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( sum * sum;)s
+0.498 0.125 0.498 r
+(    26)61.2 474.9 ms
+0 g
+(})109.2 474.9 ms
+0.498 0.125 0.498 r
+(    27)61.2 464.9 ms
+(    28)61.2 454.9 ms
+0 0.125 0.251 r
+(/* fast_exp: returns base raised to the exponent power)109.2 454.9 ms
+0.498 0.125 0.498 r
+(    29)61.2 444.9 ms
+0 0.125 0.251 r
+( * recursive fast exponentiation algorithm:)109.2 444.9 ms
+0.498 0.125 0.498 r
+(    30)61.2 434.9 ms
+0 0.125 0.251 r
+( *     if exponent is 0 --> return 1)109.2 434.9 ms
+0.498 0.125 0.498 r
+(    31)61.2 424.9 ms
+0 0.125 0.251 r
+( *     if exponent is 1 --> return base)109.2 424.9 ms
+0.498 0.125 0.498 r
+(    32)61.2 414.9 ms
+0 0.125 0.251 r
+( *     if exponent is even --> return \(base ^ \(exponent / 2\)\)^2)109.2 414.9 ms
+0.498 0.125 0.498 r
+(    33)61.2 404.9 ms
+0 0.125 0.251 r
+( *     if exponent is odd --> return base * \(base ^ \(exponent / 2\)\)^2)109.2 404.9 ms
+0.498 0.125 0.498 r
+(    34)61.2 394.9 ms
+0 0.125 0.251 r
+( */)109.2 394.9 ms
+0.498 0.125 0.498 r
+(    35)61.2 384.9 ms
+(int)109.2 384.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(fast_exp)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( base, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( exponent\){)s
+0.498 0.125 0.498 r
+(    36)61.2 374.9 ms
+0 g
+(    )109.2 374.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(exponent == )s
+0.376 g
+(0)s
+0 g
+(\) { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(1)s
+0 g
+(; })s
+0.498 0.125 0.498 r
+(    37)61.2 364.9 ms
+0 g
+(    )109.2 364.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(exponent == )s
+0.376 g
+(1)s
+0 g
+(\) { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( base; })s
+0.498 0.125 0.498 r
+(    38)61.2 354.9 ms
+(    39)61.2 344.9 ms
+0 g
+(    )109.2 344.9 ms
+0 0.125 0.251 r
+(// note we can truncate the two cases since integral division takes care o)s
+(f)109.2 334.9 ms
+0.498 0.125 0.498 r
+(    40)61.2 324.9 ms
+0 g
+(    )109.2 324.9 ms
+0 0.125 0.251 r
+(// decimals)s
+0.498 0.125 0.498 r
+(    41)61.2 314.9 ms
+0 g
+(    )109.2 314.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( tmp = )s
+0.498 0.125 0.498 r
+(fast_exp)s
+0 g
+(\(base, exponent / )s
+0.376 g
+(2)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(    42)61.2 304.9 ms
+0 g
+(    )109.2 304.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( tmp * tmp * )s
+0.498 0.125 0.498 r
+(fast_exp)s
+0 g
+(\(base, exponent % )s
+0.376 g
+(2)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(    43)61.2 294.9 ms
+0 g
+(})109.2 294.9 ms
+0.498 0.125 0.498 r
+(    44)61.2 284.9 ms
+(    45)61.2 274.9 ms
+0 0.125 0.251 r
+(// )109.2 274.9 ms
+0 g
+(TODO)s
+0 0.125 0.251 r
+( Mateix Stuff :3 I need to git gud at linear algebra first)s
+0.498 0.125 0.498 r
+(    46)61.2 264.9 ms
+(    47)61.2 254.9 ms
+0 0.125 0.251 r
+(/* gcd: finds the greatest common factor of a and b)109.2 254.9 ms
+0.498 0.125 0.498 r
+(    48)61.2 244.9 ms
+0 0.125 0.251 r
+( * repeated application of Euclidean's Algo: gcd\(a, b\) = gcd\(a, b - n * a\))109.2 244.9 ms
+0.498 0.125 0.498 r
+(    49)61.2 234.9 ms
+0 0.125 0.251 r
+( */)109.2 234.9 ms
+0.498 0.125 0.498 r
+(    50)61.2 224.9 ms
+(int)109.2 224.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(gcd)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( a, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( b\){)s
+0.498 0.125 0.498 r
+(    51)61.2 214.9 ms
+0 g
+(    )109.2 214.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(a > b\) { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(gcd)s
+0 g
+(\(b, a\); })s
+0.498 0.125 0.498 r
+(    52)61.2 204.9 ms
+0 g
+(    )109.2 204.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(a == )s
+0.376 g
+(0)s
+0 g
+(\) { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( b; })s
+0.498 0.125 0.498 r
+(    53)61.2 194.9 ms
+0 g
+(    )109.2 194.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(gcd)s
+0 g
+(\(a, b % a\);)s
+0.498 0.125 0.498 r
+(    54)61.2 184.9 ms
+0 g
+(})109.2 184.9 ms
+0.498 0.125 0.498 r
+(    55)61.2 174.9 ms
+(    56)61.2 164.9 ms
+0 0.125 0.251 r
+(/* lcm: finds the least common multiple of a and b)109.2 164.9 ms
+0.498 0.125 0.498 r
+(    57)61.2 154.9 ms
+0 0.125 0.251 r
+( * least common multiple of two numbers is the product of the two numbers)109.2 154.9 ms
+0.498 0.125 0.498 r
+(    58)61.2 144.9 ms
+0 0.125 0.251 r
+( * divided by their greatest common factor)109.2 144.9 ms
+0.498 0.125 0.498 r
+(    59)61.2 134.9 ms
+0 0.125 0.251 r
+( */)109.2 134.9 ms
+0.498 0.125 0.498 r
+(    60)61.2 124.9 ms
+(int)109.2 124.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(lcm)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( a, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( b\){)s
+0.498 0.125 0.498 r
+(    61)61.2 114.9 ms
+0 g
+(    )109.2 114.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( a / )s
+0.498 0.125 0.498 r
+(gcd)s
+0 g
+(\(a, b\) * b;)s
+0.498 0.125 0.498 r
+(    62)61.2 104.9 ms
+0 g
+(})109.2 104.9 ms
+0.498 0.125 0.498 r
+(    63)61.2 94.9 ms
+(    64)61.2 84.9 ms
+0 0.125 0.251 r
+(/* egcd: extended euclidean algorithm)109.2 84.9 ms
+0.498 0.125 0.498 r
+(    65)61.2 74.9 ms
+0 0.125 0.251 r
+( * returns the gcd of a and b, but also keeps the coefficient x, y such that a)109.2 74.9 ms
+(x)109.2 64.9 ms
+0.498 0.125 0.498 r
+(    66)61.2 54.9 ms
+0 0.125 0.251 r
+( * + by = gcd\(a, b\))109.2 54.9 ms
+0.498 0.125 0.498 r
+(    67)61.2 44.9 ms
+0 0.125 0.251 r
+( */)109.2 44.9 ms
+re sp
+%%PageTrailer
+%%Page: 2 2
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(math.cpp                                                                        Page 2)61.2 744.9 ms
+F0 sf
+0.498 0.125 0.498 r
+(    68)61.2 724.9 ms
+(int)109.2 724.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(egcd)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( a, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( b, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( &x, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( &y\) {)s
+0.498 0.125 0.498 r
+(    69)61.2 714.9 ms
+(    70)61.2 704.9 ms
+0 g
+(    )109.2 704.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(a > b\) { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(egcd)s
+0 g
+(\(b, a, y, x\); })s
+0.498 0.125 0.498 r
+(    71)61.2 694.9 ms
+(    72)61.2 684.9 ms
+0 g
+(    )109.2 684.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(a == )s
+0.376 g
+(0)s
+0 g
+(\) {)s
+0.498 0.125 0.498 r
+(    73)61.2 674.9 ms
+0 g
+(        x = )109.2 674.9 ms
+0.376 g
+(0)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    74)61.2 664.9 ms
+0 g
+(        y = )109.2 664.9 ms
+0.376 g
+(1)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    75)61.2 654.9 ms
+0 g
+(        )109.2 654.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( b;)s
+0.498 0.125 0.498 r
+(    76)61.2 644.9 ms
+0 g
+(    })109.2 644.9 ms
+0.498 0.125 0.498 r
+(    77)61.2 634.9 ms
+(    78)61.2 624.9 ms
+0 g
+(    )109.2 624.9 ms
+0 0.125 0.251 r
+(// let b = an + c, then we have)s
+0.498 0.125 0.498 r
+(    79)61.2 614.9 ms
+0 g
+(    )109.2 614.9 ms
+0 0.125 0.251 r
+(// ax + \(an + c\)y = g)s
+0.498 0.125 0.498 r
+(    80)61.2 604.9 ms
+0 g
+(    )109.2 604.9 ms
+0 0.125 0.251 r
+(// a\(x + ny\) + cy = g)s
+0.498 0.125 0.498 r
+(    81)61.2 594.9 ms
+0 g
+(    )109.2 594.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( x1, y1, g = )s
+0.498 0.125 0.498 r
+(egcd)s
+0 g
+(\(b % a, a, x1, y1\);)s
+0.498 0.125 0.498 r
+(    82)61.2 584.9 ms
+0 g
+(    y = x1;)109.2 584.9 ms
+0.498 0.125 0.498 r
+(    83)61.2 574.9 ms
+0 g
+(    x = y1 - x1 * \(b / a\);)109.2 574.9 ms
+0.498 0.125 0.498 r
+(    84)61.2 564.9 ms
+0 g
+(    )109.2 564.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( g;)s
+0.498 0.125 0.498 r
+(    85)61.2 554.9 ms
+0 g
+(})109.2 554.9 ms
+0.498 0.125 0.498 r
+(    86)61.2 544.9 ms
+(    87)61.2 534.9 ms
+0 0.125 0.251 r
+(/* mod_inv: returns the multiplicative inverse of a mod n, returns -1 if)109.2 534.9 ms
+0.498 0.125 0.498 r
+(    88)61.2 524.9 ms
+0 0.125 0.251 r
+( * non-existent)109.2 524.9 ms
+0.498 0.125 0.498 r
+(    89)61.2 514.9 ms
+0 0.125 0.251 r
+( * we use the extended euclidean algorithm on a and n, if ax + ny = 1, we know)109.2 514.9 ms
+0.498 0.125 0.498 r
+(    90)61.2 504.9 ms
+0 0.125 0.251 r
+( * ax is congruent to 1 mod n)109.2 504.9 ms
+0.498 0.125 0.498 r
+(    91)61.2 494.9 ms
+0 0.125 0.251 r
+( */)109.2 494.9 ms
+0.498 0.125 0.498 r
+(    92)61.2 484.9 ms
+(int)109.2 484.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(mod_inv)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( a, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( n\){)s
+0.498 0.125 0.498 r
+(    93)61.2 474.9 ms
+0 g
+(    )109.2 474.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( x, y, g = )s
+0.498 0.125 0.498 r
+(egcd)s
+0 g
+(\(a, n, x, y\);)s
+0.498 0.125 0.498 r
+(    94)61.2 464.9 ms
+(    95)61.2 454.9 ms
+0 g
+(    )109.2 454.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(g != )s
+0.376 g
+(1)s
+0 g
+(\) { )s
+0 0.125 0.251 r
+(// a and n must be co-prime)s
+0.498 0.125 0.498 r
+(    96)61.2 444.9 ms
+0 g
+(        )109.2 444.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( -)s
+0.376 g
+(1)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    97)61.2 434.9 ms
+0 g
+(    })109.2 434.9 ms
+0.498 0.125 0.498 r
+(    98)61.2 424.9 ms
+0 g
+(    )109.2 424.9 ms
+0.498 0.498 0 r
+(else)s
+0 g
+( {)s
+0.498 0.125 0.498 r
+(    99)61.2 414.9 ms
+0 g
+(        )109.2 414.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( x;)s
+0.498 0.125 0.498 r
+(   100)61.2 404.9 ms
+0 g
+(    })109.2 404.9 ms
+0.498 0.125 0.498 r
+(   101)61.2 394.9 ms
+0 g
+(})109.2 394.9 ms
+0.498 0.125 0.498 r
+(   102)61.2 384.9 ms
+re sp
+%%PageTrailer
+%%Trailer
+%%Pages: 2
+%%EOF
+

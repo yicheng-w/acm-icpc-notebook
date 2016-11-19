@@ -1,0 +1,1006 @@
+%!PS-Adobe-3.0
+%%Title: trie.cpp
+%%For: yicheng-wang
+%%Creator: NVIM v0.1.3-128-gf887037
+%%CreationDate: Sat Nov  5 00:47:29 2016
+%%DocumentData: Clean8Bit
+%%Orientation: Portrait
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%BoundingBox: 61 42 529 752
+%%DocumentMedia: letter 612 792 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%DocumentSuppliedResources: procset VIM-Prolog 1.4 1
+%%+ encoding VIM-latin1 1.0 0
+%%Requirements: duplex collate color
+%%EndComments
+%%BeginDefaults
+%%PageResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%PageMedia: letter
+%%EndDefaults
+%%BeginProlog
+%%BeginResource: procset VIM-Prolog
+%%BeginDocument: /usr/local/share/nvim/runtime/print/prolog.ps
+%!PS-Adobe-3.0 Resource-ProcSet
+%%Title: VIM-Prolog
+%%Version: 1.4 1
+%%EndComments
+% Editing of this file is NOT RECOMMENDED.  You run a very good risk of causing
+% all PostScript printing from VIM failing if you do.  PostScript is not called
+% a write-only language for nothing!
+/packedarray where not{userdict begin/setpacking/pop load def/currentpacking
+false def end}{pop}ifelse/CP currentpacking def true setpacking
+/bd{bind def}bind def/ld{load def}bd/ed{exch def}bd/d/def ld
+/db{dict begin}bd/cde{currentdict end}bd
+/T true d/F false d
+/SO null d/sv{/SO save d}bd/re{SO restore}bd
+/L2 systemdict/languagelevel 2 copy known{get exec}{pop pop 1}ifelse 2 ge d
+/m/moveto ld/s/show ld /ms{m s}bd /g/setgray ld/r/setrgbcolor ld/sp{showpage}bd
+/gs/gsave ld/gr/grestore ld/cp/currentpoint ld
+/ul{gs UW setlinewidth cp UO add 2 copy newpath m 3 1 roll add exch lineto
+stroke gr}bd
+/bg{gs r cp BO add 4 -2 roll rectfill gr}bd
+/sl{90 rotate 0 exch translate}bd
+L2{
+/sspd{mark exch{setpagedevice}stopped cleartomark}bd
+/nc{1 db/NumCopies ed cde sspd}bd
+/sps{3 db/Orientation ed[3 1 roll]/PageSize ed/ImagingBBox null d cde sspd}bd
+/dt{2 db/Tumble ed/Duplex ed cde sspd}bd
+/c{1 db/Collate ed cde sspd}bd
+}{
+/nc{/#copies ed}bd
+/sps{statusdict/setpage get exec}bd
+/dt{statusdict/settumble 2 copy known{get exec}{pop pop pop}ifelse
+statusdict/setduplexmode 2 copy known{get exec}{pop pop pop}ifelse}bd
+/c{pop}bd
+}ifelse
+/ffs{findfont exch scalefont d}bd/sf{setfont}bd
+/ref{1 db findfont dup maxlength dict/NFD ed{exch dup/FID ne{exch NFD 3 1 roll
+put}{pop pop}ifelse}forall/Encoding findresource dup length 256 eq{NFD/Encoding
+3 -1 roll put}{pop}ifelse NFD dup/FontType get 3 ne{/CharStrings}{/CharProcs}
+ifelse 2 copy known{2 copy get dup maxlength dict copy[/questiondown/space]{2
+copy known{2 copy get 2 index/.notdef 3 -1 roll put pop exit}if pop}forall put
+}{pop pop}ifelse dup NFD/FontName 3 -1 roll put NFD definefont pop end}bd
+CP setpacking
+(\004)cvn{}bd
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%BeginResource: encoding VIM-latin1
+%%BeginDocument: /usr/local/share/nvim/runtime/print/latin1.ps
+%!PS-Adobe-3.0 Resource-Encoding
+%%Title: VIM-latin1
+%%Version: 1.0 0
+%%EndComments
+/VIM-latin1[
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/grave /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]
+/Encoding defineresource pop
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%EndProlog
+%%BeginSetup
+612 792 0 sps
+1 nc
+T F dt
+T c
+%%IncludeResource: font Courier
+/_F0 /VIM-latin1 /Courier ref
+/F0 10 /_F0 ffs
+%%IncludeResource: font Courier-Bold
+/_F1 /VIM-latin1 /Courier-Bold ref
+/F1 10 /_F1 ffs
+%%IncludeResource: font Courier-Oblique
+/_F2 /VIM-latin1 /Courier-Oblique ref
+/F2 10 /_F2 ffs
+%%IncludeResource: font Courier-BoldOblique
+/_F3 /VIM-latin1 /Courier-BoldOblique ref
+/F3 10 /_F3 ffs
+/UO -1 d
+/UW 0.5 d
+/BO -2.5 d
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+0 g
+(trie.cpp                                                                        Page 1)61.2 744.9 ms
+F0 sf
+0.498 0.125 0.498 r
+(     1)61.2 724.9 ms
+(#include )109.2 724.9 ms
+0 g
+(<iostream>)s
+0.498 0.125 0.498 r
+(     2)61.2 714.9 ms
+(#include )109.2 714.9 ms
+0 g
+(<iomanip>)s
+0.498 0.125 0.498 r
+(     3)61.2 704.9 ms
+(#include )109.2 704.9 ms
+0 g
+(<cstdio>)s
+0.498 0.125 0.498 r
+(     4)61.2 694.9 ms
+(#include )109.2 694.9 ms
+0 g
+(<vector>)s
+0.498 0.125 0.498 r
+(     5)61.2 684.9 ms
+(#include )109.2 684.9 ms
+0 g
+(<map>)s
+0.498 0.125 0.498 r
+(     6)61.2 674.9 ms
+(#include )109.2 674.9 ms
+0 g
+(<set>)s
+0.498 0.125 0.498 r
+(     7)61.2 664.9 ms
+(#include )109.2 664.9 ms
+0 g
+(<utility>)s
+0.498 0.125 0.498 r
+(     8)61.2 654.9 ms
+(#include )109.2 654.9 ms
+0 g
+(<stack>)s
+0.498 0.125 0.498 r
+(     9)61.2 644.9 ms
+(#include )109.2 644.9 ms
+0 g
+(<queue>)s
+0.498 0.125 0.498 r
+(    10)61.2 634.9 ms
+(#include )109.2 634.9 ms
+0 g
+(<cstring>)s
+0.498 0.125 0.498 r
+(    11)61.2 624.9 ms
+(#include )109.2 624.9 ms
+0 g
+(<algorithm>)s
+0.498 0.125 0.498 r
+(    12)61.2 614.9 ms
+(#include )109.2 614.9 ms
+0 g
+(<sstream>)s
+0.498 0.125 0.498 r
+(    13)61.2 604.9 ms
+(#include )109.2 604.9 ms
+0 g
+(<cstdlib>)s
+0.498 0.125 0.498 r
+(    14)61.2 594.9 ms
+(    15)61.2 584.9 ms
+(#define REP)109.2 584.9 ms
+0 g
+(\(i, x\))s
+0.498 0.125 0.498 r
+( )s
+0.498 0.498 0 r
+(for)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < x; i++\))s
+0.498 0.125 0.498 r
+(    16)61.2 574.9 ms
+(#define REPS)109.2 574.9 ms
+0 g
+(\(i, s, x\))s
+0.498 0.125 0.498 r
+( )s
+0.498 0.498 0 r
+(for)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = s; i < x; i++\))s
+0.498 0.125 0.498 r
+(    17)61.2 564.9 ms
+(#define newl )109.2 564.9 ms
+0 g
+('\\n')s
+0.498 0.125 0.498 r
+(    18)61.2 554.9 ms
+(#define dbg )109.2 554.9 ms
+0.376 g
+(cerr)s
+0.498 0.125 0.498 r
+(    19)61.2 544.9 ms
+(#define ll long long)109.2 544.9 ms
+(    20)61.2 534.9 ms
+(#define ii pair<int, int>)109.2 534.9 ms
+(    21)61.2 524.9 ms
+(#define iii pair <ii, int>)109.2 524.9 ms
+(    22)61.2 514.9 ms
+(#define iiii pair<ii, ii>)109.2 514.9 ms
+(    23)61.2 504.9 ms
+(#define vi vector <int>)109.2 504.9 ms
+(    24)61.2 494.9 ms
+(#define vii vector <ii>)109.2 494.9 ms
+(    25)61.2 484.9 ms
+(#define vs vector <string>)109.2 484.9 ms
+(    26)61.2 474.9 ms
+(#define PB push_back)109.2 474.9 ms
+(    27)61.2 464.9 ms
+(#define INF )109.2 464.9 ms
+0.376 g
+(1000000008)s
+0.498 0.125 0.498 r
+(    28)61.2 454.9 ms
+(#define all)109.2 454.9 ms
+0 g
+(\(x\))s
+0.498 0.125 0.498 r
+( x.begin)s
+0 g
+(\(\))s
+0.498 0.125 0.498 r
+(, x.end)s
+0 g
+(\(\))s
+0.498 0.125 0.498 r
+(    29)61.2 444.9 ms
+(    30)61.2 434.9 ms
+0.498 0.498 0 r
+(using)109.2 434.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(namespace)s
+0 g
+( )s
+0.376 g
+(std)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    31)61.2 424.9 ms
+(    32)61.2 414.9 ms
+(class)109.2 414.9 ms
+0 g
+( trie{)s
+0.498 0.125 0.498 r
+(    33)61.2 404.9 ms
+0 g
+(    )109.2 404.9 ms
+0.498 0.125 0.498 r
+(struct)s
+0 g
+( counts)s
+0.498 0.125 0.498 r
+(    34)61.2 394.9 ms
+0 g
+(    {)109.2 394.9 ms
+0.498 0.125 0.498 r
+(    35)61.2 384.9 ms
+0 g
+(        )109.2 384.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( pc = )s
+0.376 g
+(0)s
+0 g
+(; )s
+0 0.125 0.251 r
+(//prefix count - num of words that begin with current node)s
+0.498 0.125 0.498 r
+(    36)61.2 374.9 ms
+0 g
+(        )109.2 374.9 ms
+0.498 0.125 0.498 r
+(bool)s
+0 g
+( we = )s
+0.376 g
+(false)s
+0 g
+(; )s
+0 0.125 0.251 r
+(//word end - whether current node is the end of a wor)s
+(d)109.2 364.9 ms
+0.498 0.125 0.498 r
+(    37)61.2 354.9 ms
+0 g
+(    };)109.2 354.9 ms
+0.498 0.125 0.498 r
+(    38)61.2 344.9 ms
+(    39)61.2 334.9 ms
+0 g
+(    )109.2 334.9 ms
+0.498 0.498 0 r
+(private)s
+0 g
+(:)s
+0.498 0.125 0.498 r
+(    40)61.2 324.9 ms
+0 g
+(        )109.2 324.9 ms
+0.498 0.125 0.498 r
+(map)s
+0 g
+( <)s
+0.498 0.125 0.498 r
+(pair)s
+0 g
+( <)s
+0.498 0.125 0.498 r
+(char)s
+0 g
+(, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+(>, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+(> t; )s
+0 0.125 0.251 r
+(//maps \(x, y\) to z, where x is the valu)s
+(e of and y is the parent of node z)109.2 314.9 ms
+0.498 0.125 0.498 r
+(    41)61.2 304.9 ms
+0 g
+(        )109.2 304.9 ms
+0.498 0.125 0.498 r
+(map)s
+0 g
+( <)s
+0.498 0.125 0.498 r
+(int)s
+0 g
+(, counts> tc; )s
+0 0.125 0.251 r
+(//maps x to y where y contains the counts of nod)s
+(e x)109.2 294.9 ms
+0.498 0.125 0.498 r
+(    42)61.2 284.9 ms
+0 g
+(        )109.2 284.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( nn = )s
+0.376 g
+(0)s
+0 g
+(; )s
+0 0.125 0.251 r
+(//number of nodes that exist in the trie)s
+0.498 0.125 0.498 r
+(    43)61.2 274.9 ms
+(    44)61.2 264.9 ms
+0 g
+(    )109.2 264.9 ms
+0.498 0.498 0 r
+(public)s
+0 g
+(:)s
+0.498 0.125 0.498 r
+(    45)61.2 254.9 ms
+0 g
+(        )109.2 254.9 ms
+0.498 0.125 0.498 r
+(map)s
+0 g
+( <)s
+0.498 0.125 0.498 r
+(pair)s
+0 g
+( <)s
+0.498 0.125 0.498 r
+(char)s
+0 g
+(, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+(>, )s
+0.498 0.125 0.498 r
+(int)s
+0 g
+(> )s
+0.498 0.125 0.498 r
+(getTrie)s
+0 g
+(\(\))s
+0.498 0.125 0.498 r
+(    46)61.2 244.9 ms
+0 g
+(        {)109.2 244.9 ms
+0.498 0.125 0.498 r
+(    47)61.2 234.9 ms
+0 g
+(            )109.2 234.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( t;)s
+0.498 0.125 0.498 r
+(    48)61.2 224.9 ms
+0 g
+(        })109.2 224.9 ms
+0.498 0.125 0.498 r
+(    49)61.2 214.9 ms
+(    50)61.2 204.9 ms
+0 g
+(        )109.2 204.9 ms
+0.498 0.125 0.498 r
+(map)s
+0 g
+( <)s
+0.498 0.125 0.498 r
+(int)s
+0 g
+(, counts> )s
+0.498 0.125 0.498 r
+(getTotalCounts)s
+0 g
+(\(\))s
+0.498 0.125 0.498 r
+(    51)61.2 194.9 ms
+0 g
+(        {)109.2 194.9 ms
+0.498 0.125 0.498 r
+(    52)61.2 184.9 ms
+0 g
+(            )109.2 184.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( tc;)s
+0.498 0.125 0.498 r
+(    53)61.2 174.9 ms
+0 g
+(        })109.2 174.9 ms
+0.498 0.125 0.498 r
+(    54)61.2 164.9 ms
+(    55)61.2 154.9 ms
+0 g
+(        )109.2 154.9 ms
+0 0.125 0.251 r
+(/* input: string to be inserted)s
+0.498 0.125 0.498 r
+(    56)61.2 144.9 ms
+0 0.125 0.251 r
+(        *  Runs in O\(|S| * log\(N\)\) time; |S| = length of the string being inse)109.2 144.9 ms
+(rted; N = number of nodes in the trie)109.2 134.9 ms
+0.498 0.125 0.498 r
+(    57)61.2 124.9 ms
+0 0.125 0.251 r
+(        *  output: true or false depending on whether s is in trie or not resp)109.2 124.9 ms
+(ectively)109.2 114.9 ms
+0.498 0.125 0.498 r
+(    58)61.2 104.9 ms
+0 0.125 0.251 r
+(        */)109.2 104.9 ms
+0.498 0.125 0.498 r
+(    59)61.2 94.9 ms
+0 g
+(        )109.2 94.9 ms
+0.498 0.125 0.498 r
+(void)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(addWord)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(string)s
+0 g
+( s\) )s
+0 0.125 0.251 r
+(//)s
+0.498 0.125 0.498 r
+(    60)61.2 84.9 ms
+0 g
+(        {)109.2 84.9 ms
+0.498 0.125 0.498 r
+(    61)61.2 74.9 ms
+0 g
+(            )109.2 74.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( v = )s
+0.376 g
+(0)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    62)61.2 64.9 ms
+0 g
+(            tc[)109.2 64.9 ms
+0.376 g
+(0)s
+0 g
+(].pc += )s
+0.376 g
+(1)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    63)61.2 54.9 ms
+0 g
+(            )109.2 54.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(char)s
+0 g
+( ch: s\))s
+0.498 0.125 0.498 r
+(    64)61.2 44.9 ms
+0 g
+(            {)109.2 44.9 ms
+re sp
+%%PageTrailer
+%%Page: 2 2
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(trie.cpp                                                                        Page 2)61.2 744.9 ms
+F0 sf
+0.498 0.125 0.498 r
+(    65)61.2 724.9 ms
+0 g
+(                )109.2 724.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(t.)s
+0.498 0.125 0.498 r
+(count)s
+0 g
+(\({ch, v}\) == )s
+0.376 g
+(0)s
+0 g
+(\) )s
+0 0.125 0.251 r
+(//if there is not an edge that goes)s
+( from node v to a node with ch, create one)109.2 714.9 ms
+0.498 0.125 0.498 r
+(    66)61.2 704.9 ms
+0 g
+(                {)109.2 704.9 ms
+0.498 0.125 0.498 r
+(    67)61.2 694.9 ms
+0 g
+(                    t[)109.2 694.9 ms
+0.376 g
+6 ul
+({)s
+0 g
+(ch, v)s
+0.376 g
+6 ul
+(})s
+0 g
+(] = ++nn;)s
+0.498 0.125 0.498 r
+(    68)61.2 684.9 ms
+0 g
+(                })109.2 684.9 ms
+0.498 0.125 0.498 r
+(    69)61.2 674.9 ms
+0 g
+(                v = t[)109.2 674.9 ms
+0.376 g
+6 ul
+({)s
+0 g
+(ch, v)s
+0.376 g
+6 ul
+(})s
+0 g
+(];)s
+0.498 0.125 0.498 r
+(    70)61.2 664.9 ms
+0 g
+(                tc[v].pc += )109.2 664.9 ms
+0.376 g
+(1)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    71)61.2 654.9 ms
+0 g
+(            })109.2 654.9 ms
+0.498 0.125 0.498 r
+(    72)61.2 644.9 ms
+0 g
+(            tc[v].we = )109.2 644.9 ms
+0.376 g
+(true)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    73)61.2 634.9 ms
+0 g
+(        })109.2 634.9 ms
+0.498 0.125 0.498 r
+(    74)61.2 624.9 ms
+(    75)61.2 614.9 ms
+0 g
+(        )109.2 614.9 ms
+0 0.125 0.251 r
+(/* input: string that needs to be found in trie)s
+0.498 0.125 0.498 r
+(    76)61.2 604.9 ms
+0 0.125 0.251 r
+(        *  Runs in O\(|S| * log\(N\)\) time; |S| = length of string that's being f)109.2 604.9 ms
+(ound; N = number of nodes in trie)109.2 594.9 ms
+0.498 0.125 0.498 r
+(    77)61.2 584.9 ms
+0 0.125 0.251 r
+(        *  output: true or false depending on whether s is in trie or not resp)109.2 584.9 ms
+(ectively)109.2 574.9 ms
+0.498 0.125 0.498 r
+(    78)61.2 564.9 ms
+0 0.125 0.251 r
+(        */)109.2 564.9 ms
+0.498 0.125 0.498 r
+(    79)61.2 554.9 ms
+0 g
+(        )109.2 554.9 ms
+0.498 0.125 0.498 r
+(bool)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(findWord)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(string)s
+0 g
+( s\) )s
+0 0.125 0.251 r
+(//finds word in O\(|S| * log\(N\)\) time)s
+0.498 0.125 0.498 r
+(    80)61.2 544.9 ms
+0 g
+(        {)109.2 544.9 ms
+0.498 0.125 0.498 r
+(    81)61.2 534.9 ms
+0 g
+(            )109.2 534.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( v = )s
+0.376 g
+(0)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    82)61.2 524.9 ms
+0 g
+(            )109.2 524.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(char)s
+0 g
+( ch: s\))s
+0.498 0.125 0.498 r
+(    83)61.2 514.9 ms
+0 g
+(            {)109.2 514.9 ms
+0.498 0.125 0.498 r
+(    84)61.2 504.9 ms
+0 g
+(                )109.2 504.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(t.)s
+0.498 0.125 0.498 r
+(count)s
+0 g
+(\({ch, v}\) == )s
+0.376 g
+(0)s
+0 g
+(\))s
+0.498 0.125 0.498 r
+(    85)61.2 494.9 ms
+0 g
+(                {)109.2 494.9 ms
+0.498 0.125 0.498 r
+(    86)61.2 484.9 ms
+0 g
+(                    )109.2 484.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(false)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    87)61.2 474.9 ms
+0 g
+(                })109.2 474.9 ms
+0.498 0.125 0.498 r
+(    88)61.2 464.9 ms
+0 g
+(                v = t[)109.2 464.9 ms
+0.376 g
+6 ul
+({)s
+0 g
+(ch, v)s
+0.376 g
+6 ul
+(})s
+0 g
+(];)s
+0.498 0.125 0.498 r
+(    89)61.2 454.9 ms
+0 g
+(            })109.2 454.9 ms
+0.498 0.125 0.498 r
+(    90)61.2 444.9 ms
+0 g
+(            )109.2 444.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( tc[v].we;)s
+0.498 0.125 0.498 r
+(    91)61.2 434.9 ms
+0 g
+(        })109.2 434.9 ms
+0.498 0.125 0.498 r
+(    92)61.2 424.9 ms
+0 g
+(};)109.2 424.9 ms
+0.498 0.125 0.498 r
+(    93)61.2 414.9 ms
+(    94)61.2 404.9 ms
+0 0.125 0.251 r
+(/* input: insert n words into trie, then make m queries)109.2 404.9 ms
+0.498 0.125 0.498 r
+(    95)61.2 394.9 ms
+0 0.125 0.251 r
+(*  output: whether any of the queries are found or not)109.2 394.9 ms
+0.498 0.125 0.498 r
+(    96)61.2 384.9 ms
+0 0.125 0.251 r
+(*/)109.2 384.9 ms
+0.498 0.125 0.498 r
+(    97)61.2 374.9 ms
+(void)109.2 374.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(tester)s
+0 g
+(\(\))s
+0.498 0.125 0.498 r
+(    98)61.2 364.9 ms
+0 g
+({)109.2 364.9 ms
+0.498 0.125 0.498 r
+(    99)61.2 354.9 ms
+0 g
+(    )109.2 354.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( n, m;)s
+0.498 0.125 0.498 r
+(   100)61.2 344.9 ms
+0 g
+(    )109.2 344.9 ms
+0.498 0.125 0.498 r
+(string)s
+0 g
+( tempWord;)s
+0.498 0.125 0.498 r
+(   101)61.2 334.9 ms
+0 g
+(    trie timpl = )109.2 334.9 ms
+0.498 0.125 0.498 r
+(trie)s
+0 g
+(\(\);)s
+0.498 0.125 0.498 r
+(   102)61.2 324.9 ms
+(   103)61.2 314.9 ms
+0 g
+(    )109.2 314.9 ms
+0.376 g
+(cin)s
+0 g
+(>>n;)s
+0.498 0.125 0.498 r
+(   104)61.2 304.9 ms
+0 g
+(    )109.2 304.9 ms
+0.376 g
+(cin)s
+0 g
+(.)s
+0.498 0.125 0.498 r
+(get)s
+0 g
+(\(\);)s
+0.498 0.125 0.498 r
+(   105)61.2 294.9 ms
+(   106)61.2 284.9 ms
+0 g
+(    )109.2 284.9 ms
+0.498 0.125 0.498 r
+(REP)s
+0 g
+(\(i, n\))s
+0.498 0.125 0.498 r
+(   107)61.2 274.9 ms
+0 g
+(    {)109.2 274.9 ms
+0.498 0.125 0.498 r
+(   108)61.2 264.9 ms
+0 g
+(        )109.2 264.9 ms
+0.498 0.125 0.498 r
+(getline)s
+0 g
+(\()s
+0.376 g
+(cin)s
+0 g
+(, tempWord\);)s
+0.498 0.125 0.498 r
+(   109)61.2 254.9 ms
+0 g
+(        timpl.)109.2 254.9 ms
+0.498 0.125 0.498 r
+(addWord)s
+0 g
+(\(tempWord\);)s
+0.498 0.125 0.498 r
+(   110)61.2 244.9 ms
+0 g
+(    })109.2 244.9 ms
+0.498 0.125 0.498 r
+(   111)61.2 234.9 ms
+(   112)61.2 224.9 ms
+0 g
+(    )109.2 224.9 ms
+0.376 g
+(cin)s
+0 g
+(>>m;)s
+0.498 0.125 0.498 r
+(   113)61.2 214.9 ms
+0 g
+(    )109.2 214.9 ms
+0.376 g
+(cin)s
+0 g
+(.)s
+0.498 0.125 0.498 r
+(get)s
+0 g
+(\(\);)s
+0.498 0.125 0.498 r
+(   114)61.2 204.9 ms
+(   115)61.2 194.9 ms
+0 g
+(    )109.2 194.9 ms
+0.498 0.125 0.498 r
+(REP)s
+0 g
+(\(i, m\))s
+0.498 0.125 0.498 r
+(   116)61.2 184.9 ms
+0 g
+(    {)109.2 184.9 ms
+0.498 0.125 0.498 r
+(   117)61.2 174.9 ms
+0 g
+(        )109.2 174.9 ms
+0.498 0.125 0.498 r
+(getline)s
+0 g
+(\()s
+0.376 g
+(cin)s
+0 g
+(, tempWord\);)s
+0.498 0.125 0.498 r
+(   118)61.2 164.9 ms
+0 g
+(        )109.2 164.9 ms
+0.376 g
+(cout)s
+0 g
+(<<\(timpl.)s
+0.498 0.125 0.498 r
+(findWord)s
+0 g
+(\(tempWord\) ? "found" : "not found"\)<<newl;)s
+0.498 0.125 0.498 r
+(   119)61.2 154.9 ms
+0 g
+(    })109.2 154.9 ms
+0.498 0.125 0.498 r
+(   120)61.2 144.9 ms
+0 g
+(})109.2 144.9 ms
+re sp
+%%PageTrailer
+%%Trailer
+%%Pages: 2
+%%EOF
+

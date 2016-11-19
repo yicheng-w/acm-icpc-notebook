@@ -1,0 +1,4252 @@
+%!PS-Adobe-3.0
+%%Title: geoalgorithms.cpp
+%%For: yicheng-wang
+%%Creator: NVIM v0.1.3-128-gf887037
+%%CreationDate: Sat Nov  5 00:39:15 2016
+%%DocumentData: Clean8Bit
+%%Orientation: Portrait
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%BoundingBox: 61 42 529 752
+%%DocumentMedia: letter 612 792 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%DocumentSuppliedResources: procset VIM-Prolog 1.4 1
+%%+ encoding VIM-latin1 1.0 0
+%%Requirements: duplex collate color
+%%EndComments
+%%BeginDefaults
+%%PageResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%PageMedia: letter
+%%EndDefaults
+%%BeginProlog
+%%BeginResource: procset VIM-Prolog
+%%BeginDocument: /usr/local/share/nvim/runtime/print/prolog.ps
+%!PS-Adobe-3.0 Resource-ProcSet
+%%Title: VIM-Prolog
+%%Version: 1.4 1
+%%EndComments
+% Editing of this file is NOT RECOMMENDED.  You run a very good risk of causing
+% all PostScript printing from VIM failing if you do.  PostScript is not called
+% a write-only language for nothing!
+/packedarray where not{userdict begin/setpacking/pop load def/currentpacking
+false def end}{pop}ifelse/CP currentpacking def true setpacking
+/bd{bind def}bind def/ld{load def}bd/ed{exch def}bd/d/def ld
+/db{dict begin}bd/cde{currentdict end}bd
+/T true d/F false d
+/SO null d/sv{/SO save d}bd/re{SO restore}bd
+/L2 systemdict/languagelevel 2 copy known{get exec}{pop pop 1}ifelse 2 ge d
+/m/moveto ld/s/show ld /ms{m s}bd /g/setgray ld/r/setrgbcolor ld/sp{showpage}bd
+/gs/gsave ld/gr/grestore ld/cp/currentpoint ld
+/ul{gs UW setlinewidth cp UO add 2 copy newpath m 3 1 roll add exch lineto
+stroke gr}bd
+/bg{gs r cp BO add 4 -2 roll rectfill gr}bd
+/sl{90 rotate 0 exch translate}bd
+L2{
+/sspd{mark exch{setpagedevice}stopped cleartomark}bd
+/nc{1 db/NumCopies ed cde sspd}bd
+/sps{3 db/Orientation ed[3 1 roll]/PageSize ed/ImagingBBox null d cde sspd}bd
+/dt{2 db/Tumble ed/Duplex ed cde sspd}bd
+/c{1 db/Collate ed cde sspd}bd
+}{
+/nc{/#copies ed}bd
+/sps{statusdict/setpage get exec}bd
+/dt{statusdict/settumble 2 copy known{get exec}{pop pop pop}ifelse
+statusdict/setduplexmode 2 copy known{get exec}{pop pop pop}ifelse}bd
+/c{pop}bd
+}ifelse
+/ffs{findfont exch scalefont d}bd/sf{setfont}bd
+/ref{1 db findfont dup maxlength dict/NFD ed{exch dup/FID ne{exch NFD 3 1 roll
+put}{pop pop}ifelse}forall/Encoding findresource dup length 256 eq{NFD/Encoding
+3 -1 roll put}{pop}ifelse NFD dup/FontType get 3 ne{/CharStrings}{/CharProcs}
+ifelse 2 copy known{2 copy get dup maxlength dict copy[/questiondown/space]{2
+copy known{2 copy get 2 index/.notdef 3 -1 roll put pop exit}if pop}forall put
+}{pop pop}ifelse dup NFD/FontName 3 -1 roll put NFD definefont pop end}bd
+CP setpacking
+(\004)cvn{}bd
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%BeginResource: encoding VIM-latin1
+%%BeginDocument: /usr/local/share/nvim/runtime/print/latin1.ps
+%!PS-Adobe-3.0 Resource-Encoding
+%%Title: VIM-latin1
+%%Version: 1.0 0
+%%EndComments
+/VIM-latin1[
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/grave /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]
+/Encoding defineresource pop
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%EndProlog
+%%BeginSetup
+612 792 0 sps
+1 nc
+T F dt
+T c
+%%IncludeResource: font Courier
+/_F0 /VIM-latin1 /Courier ref
+/F0 10 /_F0 ffs
+%%IncludeResource: font Courier-Bold
+/_F1 /VIM-latin1 /Courier-Bold ref
+/F1 10 /_F1 ffs
+%%IncludeResource: font Courier-Oblique
+/_F2 /VIM-latin1 /Courier-Oblique ref
+/F2 10 /_F2 ffs
+%%IncludeResource: font Courier-BoldOblique
+/_F3 /VIM-latin1 /Courier-BoldOblique ref
+/F3 10 /_F3 ffs
+/UO -1 d
+/UW 0.5 d
+/BO -2.5 d
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(geoalgorithms.cpp                                                               Page 1)61.2 744.9 ms
+F0 sf
+0.498 0.125 0.498 r
+(     1)61.2 724.9 ms
+0 0.125 0.251 r
+(//stanford notebook)109.2 724.9 ms
+0.498 0.125 0.498 r
+(     2)61.2 714.9 ms
+0 0.125 0.251 r
+(// C++ routines for computational geometry.)109.2 714.9 ms
+0.498 0.125 0.498 r
+(     3)61.2 704.9 ms
+(     4)61.2 694.9 ms
+(#include )109.2 694.9 ms
+0 g
+(<iostream>)s
+0.498 0.125 0.498 r
+(     5)61.2 684.9 ms
+(#include )109.2 684.9 ms
+0 g
+(<vector>)s
+0.498 0.125 0.498 r
+(     6)61.2 674.9 ms
+(#include )109.2 674.9 ms
+0 g
+(<cmath>)s
+0.498 0.125 0.498 r
+(     7)61.2 664.9 ms
+(#include )109.2 664.9 ms
+0 g
+(<cassert>)s
+0.498 0.125 0.498 r
+(     8)61.2 654.9 ms
+(     9)61.2 644.9 ms
+0.498 0.498 0 r
+(using)109.2 644.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(namespace)s
+0 g
+( )s
+0.376 g
+(std)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    10)61.2 634.9 ms
+(    11)61.2 624.9 ms
+(double)109.2 624.9 ms
+0 g
+( INF = )s
+0.376 g
+(1e100)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    12)61.2 614.9 ms
+(double)109.2 614.9 ms
+0 g
+( EPS = )s
+0.376 g
+(1e-12)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    13)61.2 604.9 ms
+(    14)61.2 594.9 ms
+(struct)109.2 594.9 ms
+0 g
+( PT { )s
+0.498 0.125 0.498 r
+(    15)61.2 584.9 ms
+0 g
+(  )109.2 584.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( x, y; )s
+0.498 0.125 0.498 r
+(    16)61.2 574.9 ms
+0 g
+(  )109.2 574.9 ms
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(\) {})s
+0.498 0.125 0.498 r
+(    17)61.2 564.9 ms
+0 g
+(  )109.2 564.9 ms
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( x, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( y\) : )s
+0.498 0.125 0.498 r
+(x)s
+0 g
+(\(x\), )s
+0.498 0.125 0.498 r
+(y)s
+0 g
+(\(y\) {})s
+0.498 0.125 0.498 r
+(    18)61.2 554.9 ms
+0 g
+(  )109.2 554.9 ms
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( PT &p\) : )s
+0.498 0.125 0.498 r
+(x)s
+0 g
+(\(p.x\), )s
+0.498 0.125 0.498 r
+(y)s
+0 g
+(\(p.y\)    {})s
+0.498 0.125 0.498 r
+(    19)61.2 544.9 ms
+0 g
+(  PT )109.2 544.9 ms
+0.498 0.125 0.498 r
+(operator)s
+0 g
+( + \()s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( PT &p\)  )s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(x+p.x, y+p.y\); })s
+0.498 0.125 0.498 r
+(    20)61.2 534.9 ms
+0 g
+(  PT )109.2 534.9 ms
+0.498 0.125 0.498 r
+(operator)s
+0 g
+( - \()s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( PT &p\)  )s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(x-p.x, y-p.y\); })s
+0.498 0.125 0.498 r
+(    21)61.2 524.9 ms
+0 g
+(  PT )109.2 524.9 ms
+0.498 0.125 0.498 r
+(operator)s
+0 g
+( * \()s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( c\)     )s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(x*c,   y*c  \); })s
+0.498 0.125 0.498 r
+(    22)61.2 514.9 ms
+0 g
+(  PT )109.2 514.9 ms
+0.498 0.125 0.498 r
+(operator)s
+0 g
+( / \()s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( c\)     )s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(x/c,   y/c  \); })s
+0.498 0.125 0.498 r
+(    23)61.2 504.9 ms
+0 g
+(};)109.2 504.9 ms
+0.498 0.125 0.498 r
+(    24)61.2 494.9 ms
+(    25)61.2 484.9 ms
+(double)109.2 484.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(PT p, PT q\)     { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( p.x*q.x+p.y*q.y; })s
+0.498 0.125 0.498 r
+(    26)61.2 474.9 ms
+(double)109.2 474.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(dist2)s
+0 g
+(\(PT p, PT q\)   { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(p-q,p-q\); })s
+0.498 0.125 0.498 r
+(    27)61.2 464.9 ms
+(double)109.2 464.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(PT p, PT q\)   { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( p.x*q.y-p.y*q.x; })s
+0.498 0.125 0.498 r
+(    28)61.2 454.9 ms
+(ostream)109.2 454.9 ms
+0 g
+( &)s
+0.498 0.125 0.498 r
+(operator)s
+0 g
+(<<\()s
+0.498 0.125 0.498 r
+(ostream)s
+0 g
+( &os, )s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( PT &p\) {)s
+0.498 0.125 0.498 r
+(    29)61.2 444.9 ms
+0 g
+(  os << "\(" << p.x << "," << p.y << "\)"; )109.2 444.9 ms
+0.498 0.125 0.498 r
+(    30)61.2 434.9 ms
+0 g
+(})109.2 434.9 ms
+0.498 0.125 0.498 r
+(    31)61.2 424.9 ms
+(    32)61.2 414.9 ms
+0 0.125 0.251 r
+(// rotate a point CCW or CW around the origin)109.2 414.9 ms
+0.498 0.125 0.498 r
+(    33)61.2 404.9 ms
+0 g
+(PT )109.2 404.9 ms
+0.498 0.125 0.498 r
+(RotateCCW90)s
+0 g
+(\(PT p\)   { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(-p.y,p.x\); })s
+0.498 0.125 0.498 r
+(    34)61.2 394.9 ms
+0 g
+(PT )109.2 394.9 ms
+0.498 0.125 0.498 r
+(RotateCW90)s
+0 g
+(\(PT p\)    { )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(p.y,-p.x\); })s
+0.498 0.125 0.498 r
+(    35)61.2 384.9 ms
+0 g
+(PT )109.2 384.9 ms
+0.498 0.125 0.498 r
+(RotateCCW)s
+0 g
+(\(PT p, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( t\) { )s
+0.498 0.125 0.498 r
+(    36)61.2 374.9 ms
+0 g
+(  )109.2 374.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(p.x*)s
+0.498 0.125 0.498 r
+(cos)s
+0 g
+(\(t\)-p.y*)s
+0.498 0.125 0.498 r
+(sin)s
+0 g
+(\(t\), p.x*)s
+0.498 0.125 0.498 r
+(sin)s
+0 g
+(\(t\)+p.y*)s
+0.498 0.125 0.498 r
+(cos)s
+0 g
+(\(t\)\); )s
+0.498 0.125 0.498 r
+(    37)61.2 364.9 ms
+0 g
+(})109.2 364.9 ms
+0.498 0.125 0.498 r
+(    38)61.2 354.9 ms
+(    39)61.2 344.9 ms
+0 0.125 0.251 r
+(// project point c onto line through a and b)109.2 344.9 ms
+0.498 0.125 0.498 r
+(    40)61.2 334.9 ms
+0 0.125 0.251 r
+(// assuming a != b)109.2 334.9 ms
+0.498 0.125 0.498 r
+(    41)61.2 324.9 ms
+0 g
+(PT )109.2 324.9 ms
+0.498 0.125 0.498 r
+(ProjectPointLine)s
+0 g
+(\(PT a, PT b, PT c\) {)s
+0.498 0.125 0.498 r
+(    42)61.2 314.9 ms
+0 g
+(  )109.2 314.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( a + \(b-a\)*)s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(c-a, b-a\)/)s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(b-a, b-a\);)s
+0.498 0.125 0.498 r
+(    43)61.2 304.9 ms
+0 g
+(})109.2 304.9 ms
+0.498 0.125 0.498 r
+(    44)61.2 294.9 ms
+(    45)61.2 284.9 ms
+0 0.125 0.251 r
+(// project point c onto line segment through a and b)109.2 284.9 ms
+0.498 0.125 0.498 r
+(    46)61.2 274.9 ms
+0 g
+(PT )109.2 274.9 ms
+0.498 0.125 0.498 r
+(ProjectPointSegment)s
+0 g
+(\(PT a, PT b, PT c\) {)s
+0.498 0.125 0.498 r
+(    47)61.2 264.9 ms
+0 g
+(  )109.2 264.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( r = )s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(b-a,b-a\);)s
+0.498 0.125 0.498 r
+(    48)61.2 254.9 ms
+0 g
+(  )109.2 254.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(fabs)s
+0 g
+(\(r\) < EPS\) )s
+0.498 0.498 0 r
+(return)s
+0 g
+( a;)s
+0.498 0.125 0.498 r
+(    49)61.2 244.9 ms
+0 g
+(  r = )109.2 244.9 ms
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(c-a, b-a\)/r;)s
+0.498 0.125 0.498 r
+(    50)61.2 234.9 ms
+0 g
+(  )109.2 234.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(r < )s
+0.376 g
+(0)s
+0 g
+(\) )s
+0.498 0.498 0 r
+(return)s
+0 g
+( a;)s
+0.498 0.125 0.498 r
+(    51)61.2 224.9 ms
+0 g
+(  )109.2 224.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(r > )s
+0.376 g
+(1)s
+0 g
+(\) )s
+0.498 0.498 0 r
+(return)s
+0 g
+( b;)s
+0.498 0.125 0.498 r
+(    52)61.2 214.9 ms
+0 g
+(  )109.2 214.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( a + \(b-a\)*r;)s
+0.498 0.125 0.498 r
+(    53)61.2 204.9 ms
+0 g
+(})109.2 204.9 ms
+0.498 0.125 0.498 r
+(    54)61.2 194.9 ms
+(    55)61.2 184.9 ms
+0 0.125 0.251 r
+(// compute distance from c to segment between a and b)109.2 184.9 ms
+0.498 0.125 0.498 r
+(    56)61.2 174.9 ms
+(double)109.2 174.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(DistancePointSegment)s
+0 g
+(\(PT a, PT b, PT c\) {)s
+0.498 0.125 0.498 r
+(    57)61.2 164.9 ms
+0 g
+(  )109.2 164.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(sqrt)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(dist2)s
+0 g
+(\(c, )s
+0.498 0.125 0.498 r
+(ProjectPointSegment)s
+0 g
+(\(a, b, c\)\)\);)s
+0.498 0.125 0.498 r
+(    58)61.2 154.9 ms
+0 g
+(})109.2 154.9 ms
+0.498 0.125 0.498 r
+(    59)61.2 144.9 ms
+(    60)61.2 134.9 ms
+0 0.125 0.251 r
+(// compute distance between point \(x,y,z\) and plane ax+by+cz=d)109.2 134.9 ms
+0.498 0.125 0.498 r
+(    61)61.2 124.9 ms
+(double)109.2 124.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(DistancePointPlane)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( x, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( y, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( z,)s
+0.498 0.125 0.498 r
+(    62)61.2 114.9 ms
+0 g
+(                          )109.2 114.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( a, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( b, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( c, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( d\))s
+0.498 0.125 0.498 r
+(    63)61.2 104.9 ms
+0 g
+({)109.2 104.9 ms
+0.498 0.125 0.498 r
+(    64)61.2 94.9 ms
+0 g
+(  )109.2 94.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(fabs)s
+0 g
+(\(a*x+b*y+c*z-d\)/)s
+0.498 0.125 0.498 r
+(sqrt)s
+0 g
+(\(a*a+b*b+c*c\);)s
+0.498 0.125 0.498 r
+(    65)61.2 84.9 ms
+0 g
+(})109.2 84.9 ms
+0.498 0.125 0.498 r
+(    66)61.2 74.9 ms
+(    67)61.2 64.9 ms
+0 0.125 0.251 r
+(// determine if lines from a to b and c to d are parallel or collinear)109.2 64.9 ms
+0.498 0.125 0.498 r
+(    68)61.2 54.9 ms
+(bool)109.2 54.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(LinesParallel)s
+0 g
+(\(PT a, PT b, PT c, PT d\) { )s
+0.498 0.125 0.498 r
+(    69)61.2 44.9 ms
+0 g
+(  )109.2 44.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(fabs)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(b-a, c-d\)\) < EPS; )s
+re sp
+%%PageTrailer
+%%Page: 2 2
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(geoalgorithms.cpp                                                               Page 2)61.2 744.9 ms
+F0 sf
+0.498 0.125 0.498 r
+(    70)61.2 724.9 ms
+0 g
+(})109.2 724.9 ms
+0.498 0.125 0.498 r
+(    71)61.2 714.9 ms
+(    72)61.2 704.9 ms
+(bool)109.2 704.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(LinesCollinear)s
+0 g
+(\(PT a, PT b, PT c, PT d\) { )s
+0.498 0.125 0.498 r
+(    73)61.2 694.9 ms
+0 g
+(  )109.2 694.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(LinesParallel)s
+0 g
+(\(a, b, c, d\))s
+0.498 0.125 0.498 r
+(    74)61.2 684.9 ms
+0 g
+(      && )109.2 684.9 ms
+0.498 0.125 0.498 r
+(fabs)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(a-b, a-c\)\) < EPS)s
+0.498 0.125 0.498 r
+(    75)61.2 674.9 ms
+0 g
+(      && )109.2 674.9 ms
+0.498 0.125 0.498 r
+(fabs)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(c-d, c-a\)\) < EPS; )s
+0.498 0.125 0.498 r
+(    76)61.2 664.9 ms
+0 g
+(})109.2 664.9 ms
+0.498 0.125 0.498 r
+(    77)61.2 654.9 ms
+(    78)61.2 644.9 ms
+0 0.125 0.251 r
+(// determine if line segment from a to b intersects with )109.2 644.9 ms
+0.498 0.125 0.498 r
+(    79)61.2 634.9 ms
+0 0.125 0.251 r
+(// line segment from c to d)109.2 634.9 ms
+0.498 0.125 0.498 r
+(    80)61.2 624.9 ms
+(bool)109.2 624.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(SegmentsIntersect)s
+0 g
+(\(PT a, PT b, PT c, PT d\) {)s
+0.498 0.125 0.498 r
+(    81)61.2 614.9 ms
+0 g
+(  )109.2 614.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(LinesCollinear)s
+0 g
+(\(a, b, c, d\)\) {)s
+0.498 0.125 0.498 r
+(    82)61.2 604.9 ms
+0 g
+(    )109.2 604.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(dist2)s
+0 g
+(\(a, c\) < EPS || )s
+0.498 0.125 0.498 r
+(dist2)s
+0 g
+(\(a, d\) < EPS ||)s
+0.498 0.125 0.498 r
+(    83)61.2 594.9 ms
+0 g
+(      )109.2 594.9 ms
+0.498 0.125 0.498 r
+(dist2)s
+0 g
+(\(b, c\) < EPS || )s
+0.498 0.125 0.498 r
+(dist2)s
+0 g
+(\(b, d\) < EPS\) )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(true)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    84)61.2 584.9 ms
+0 g
+(    )109.2 584.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(c-a, c-b\) > )s
+0.376 g
+(0)s
+0 g
+( && )s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(d-a, d-b\) > )s
+0.376 g
+(0)s
+0 g
+( && )s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(c-b, d-b\) > )s
+0.376 g
+(0)s
+0 g
+(\))s
+0.498 0.125 0.498 r
+(    85)61.2 574.9 ms
+0 g
+(      )109.2 574.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(false)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    86)61.2 564.9 ms
+0 g
+(    )109.2 564.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(true)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    87)61.2 554.9 ms
+0 g
+(  })109.2 554.9 ms
+0.498 0.125 0.498 r
+(    88)61.2 544.9 ms
+0 g
+(  )109.2 544.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(d-a, b-a\) * )s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(c-a, b-a\) > )s
+0.376 g
+(0)s
+0 g
+(\) )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(false)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    89)61.2 534.9 ms
+0 g
+(  )109.2 534.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(a-c, d-c\) * )s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(b-c, d-c\) > )s
+0.376 g
+(0)s
+0 g
+(\) )s
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(false)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    90)61.2 524.9 ms
+0 g
+(  )109.2 524.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(true)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(    91)61.2 514.9 ms
+0 g
+(})109.2 514.9 ms
+0.498 0.125 0.498 r
+(    92)61.2 504.9 ms
+(    93)61.2 494.9 ms
+0 0.125 0.251 r
+(// compute intersection of line passing through a and b)109.2 494.9 ms
+0.498 0.125 0.498 r
+(    94)61.2 484.9 ms
+0 0.125 0.251 r
+(// with line passing through c and d, assuming that unique)109.2 484.9 ms
+0.498 0.125 0.498 r
+(    95)61.2 474.9 ms
+0 0.125 0.251 r
+(// intersection exists; for segment intersection, check if)109.2 474.9 ms
+0.498 0.125 0.498 r
+(    96)61.2 464.9 ms
+0 0.125 0.251 r
+(// segments intersect first)109.2 464.9 ms
+0.498 0.125 0.498 r
+(    97)61.2 454.9 ms
+0 g
+(PT )109.2 454.9 ms
+0.498 0.125 0.498 r
+(ComputeLineIntersection)s
+0 g
+(\(PT a, PT b, PT c, PT d\) {)s
+0.498 0.125 0.498 r
+(    98)61.2 444.9 ms
+0 g
+(  b=b-a; d=c-d; c=c-a;)109.2 444.9 ms
+0.498 0.125 0.498 r
+(    99)61.2 434.9 ms
+0 g
+(  )109.2 434.9 ms
+0.498 0.125 0.498 r
+(assert)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(b, b\) > EPS && )s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(d, d\) > EPS\);)s
+0.498 0.125 0.498 r
+(   100)61.2 424.9 ms
+0 g
+(  )109.2 424.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( a + b*)s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(c, d\)/)s
+0.498 0.125 0.498 r
+(cross)s
+0 g
+(\(b, d\);)s
+0.498 0.125 0.498 r
+(   101)61.2 414.9 ms
+0 g
+(})109.2 414.9 ms
+0.498 0.125 0.498 r
+(   102)61.2 404.9 ms
+(   103)61.2 394.9 ms
+0 0.125 0.251 r
+(// compute center of circle given three points)109.2 394.9 ms
+0.498 0.125 0.498 r
+(   104)61.2 384.9 ms
+0 g
+(PT )109.2 384.9 ms
+0.498 0.125 0.498 r
+(ComputeCircleCenter)s
+0 g
+(\(PT a, PT b, PT c\) {)s
+0.498 0.125 0.498 r
+(   105)61.2 374.9 ms
+0 g
+(  b=\(a+b\)/)109.2 374.9 ms
+0.376 g
+(2)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   106)61.2 364.9 ms
+0 g
+(  c=\(a+c\)/)109.2 364.9 ms
+0.376 g
+(2)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   107)61.2 354.9 ms
+0 g
+(  )109.2 354.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(ComputeLineIntersection)s
+0 g
+(\(b, b+)s
+0.498 0.125 0.498 r
+(RotateCW90)s
+0 g
+(\(a-b\), c, c+)s
+0.498 0.125 0.498 r
+(RotateCW90)s
+0 g
+(\(a-c\)\);)s
+0.498 0.125 0.498 r
+(   108)61.2 344.9 ms
+0 g
+(})109.2 344.9 ms
+0.498 0.125 0.498 r
+(   109)61.2 334.9 ms
+(   110)61.2 324.9 ms
+0 0.125 0.251 r
+(// determine if point is in a possibly non-convex polygon \(by William)109.2 324.9 ms
+0.498 0.125 0.498 r
+(   111)61.2 314.9 ms
+0 0.125 0.251 r
+(// Randolph Franklin\); returns 1 for strictly interior points, 0 for)109.2 314.9 ms
+0.498 0.125 0.498 r
+(   112)61.2 304.9 ms
+0 0.125 0.251 r
+(// strictly exterior points, and 0 or 1 for the remaining points.)109.2 304.9 ms
+0.498 0.125 0.498 r
+(   113)61.2 294.9 ms
+0 0.125 0.251 r
+(// Note that it is possible to convert this into an *exact* test using)109.2 294.9 ms
+0.498 0.125 0.498 r
+(   114)61.2 284.9 ms
+0 0.125 0.251 r
+(// integer arithmetic by taking care of the division appropriately)109.2 284.9 ms
+0.498 0.125 0.498 r
+(   115)61.2 274.9 ms
+0 0.125 0.251 r
+(// \(making sure to deal with signs properly\) and then by writing exact)109.2 274.9 ms
+0.498 0.125 0.498 r
+(   116)61.2 264.9 ms
+0 0.125 0.251 r
+(// tests for checking point on polygon boundary)109.2 264.9 ms
+0.498 0.125 0.498 r
+(   117)61.2 254.9 ms
+(bool)109.2 254.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(PointInPolygon)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> &p, PT q\) {)s
+0.498 0.125 0.498 r
+(   118)61.2 244.9 ms
+0 g
+(  )109.2 244.9 ms
+0.498 0.125 0.498 r
+(bool)s
+0 g
+( c = )s
+0.376 g
+(0)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   119)61.2 234.9 ms
+0 g
+(  )109.2 234.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\){)s
+0.498 0.125 0.498 r
+(   120)61.2 224.9 ms
+0 g
+(    )109.2 224.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( j = \(i+)s
+0.376 g
+(1)s
+0 g
+(\)%p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\);)s
+0.498 0.125 0.498 r
+(   121)61.2 214.9 ms
+0 g
+(    )109.2 214.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(\(p[i].y <= q.y && q.y < p[j].y || )s
+0.498 0.125 0.498 r
+(   122)61.2 204.9 ms
+0 g
+(      p[j].y <= q.y && q.y < p[i].y\) &&)109.2 204.9 ms
+0.498 0.125 0.498 r
+(   123)61.2 194.9 ms
+0 g
+(      q.x < p[i].x + \(p[j].x - p[i].x\) * \(q.y - p[i].y\) / \(p[j].y - p[i].y\)\))109.2 194.9 ms
+0.498 0.125 0.498 r
+(   124)61.2 184.9 ms
+0 g
+(      c = !c;)109.2 184.9 ms
+0.498 0.125 0.498 r
+(   125)61.2 174.9 ms
+0 g
+(  })109.2 174.9 ms
+0.498 0.125 0.498 r
+(   126)61.2 164.9 ms
+0 g
+(  )109.2 164.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( c;)s
+0.498 0.125 0.498 r
+(   127)61.2 154.9 ms
+0 g
+(})109.2 154.9 ms
+0.498 0.125 0.498 r
+(   128)61.2 144.9 ms
+(   129)61.2 134.9 ms
+0 0.125 0.251 r
+(// determine if point is on the boundary of a polygon)109.2 134.9 ms
+0.498 0.125 0.498 r
+(   130)61.2 124.9 ms
+(bool)109.2 124.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(PointOnPolygon)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> &p, PT q\) {)s
+0.498 0.125 0.498 r
+(   131)61.2 114.9 ms
+0 g
+(  )109.2 114.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\))s
+0.498 0.125 0.498 r
+(   132)61.2 104.9 ms
+0 g
+(    )109.2 104.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(dist2)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(ProjectPointSegment)s
+0 g
+(\(p[i], p[\(i+)s
+0.376 g
+(1)s
+0 g
+(\)%p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\)], q\), q\) < EPS\))s
+0.498 0.125 0.498 r
+(   133)61.2 94.9 ms
+0 g
+(      )109.2 94.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(true)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   134)61.2 84.9 ms
+0 g
+(    )109.2 84.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(false)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   135)61.2 74.9 ms
+0 g
+(})109.2 74.9 ms
+0.498 0.125 0.498 r
+(   136)61.2 64.9 ms
+(   137)61.2 54.9 ms
+0 0.125 0.251 r
+(// compute intersection of line through points a and b with)109.2 54.9 ms
+0.498 0.125 0.498 r
+(   138)61.2 44.9 ms
+0 0.125 0.251 r
+(// circle centered at c with radius r > 0)109.2 44.9 ms
+re sp
+%%PageTrailer
+%%Page: 3 3
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(geoalgorithms.cpp                                                               Page 3)61.2 744.9 ms
+F0 sf
+0.498 0.125 0.498 r
+(   139)61.2 724.9 ms
+(vector)109.2 724.9 ms
+0 g
+(<PT> )s
+0.498 0.125 0.498 r
+(CircleLineIntersection)s
+0 g
+(\(PT a, PT b, PT c, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( r\) {)s
+0.498 0.125 0.498 r
+(   140)61.2 714.9 ms
+0 g
+(  )109.2 714.9 ms
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> ret;)s
+0.498 0.125 0.498 r
+(   141)61.2 704.9 ms
+0 g
+(  b = b-a;)109.2 704.9 ms
+0.498 0.125 0.498 r
+(   142)61.2 694.9 ms
+0 g
+(  a = a-c;)109.2 694.9 ms
+0.498 0.125 0.498 r
+(   143)61.2 684.9 ms
+0 g
+(  )109.2 684.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( A = )s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(b, b\);)s
+0.498 0.125 0.498 r
+(   144)61.2 674.9 ms
+0 g
+(  )109.2 674.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( B = )s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(a, b\);)s
+0.498 0.125 0.498 r
+(   145)61.2 664.9 ms
+0 g
+(  )109.2 664.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( C = )s
+0.498 0.125 0.498 r
+(dot)s
+0 g
+(\(a, a\) - r*r;)s
+0.498 0.125 0.498 r
+(   146)61.2 654.9 ms
+0 g
+(  )109.2 654.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( D = B*B - A*C;)s
+0.498 0.125 0.498 r
+(   147)61.2 644.9 ms
+0 g
+(  )109.2 644.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(D < -EPS\) )s
+0.498 0.498 0 r
+(return)s
+0 g
+( ret;)s
+0.498 0.125 0.498 r
+(   148)61.2 634.9 ms
+0 g
+(  ret.)109.2 634.9 ms
+0.498 0.125 0.498 r
+(push_back)s
+0 g
+(\(c+a+b*\(-B+)s
+0.498 0.125 0.498 r
+(sqrt)s
+0 g
+(\(D+EPS\)\)/A\);)s
+0.498 0.125 0.498 r
+(   149)61.2 624.9 ms
+0 g
+(  )109.2 624.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(D > EPS\))s
+0.498 0.125 0.498 r
+(   150)61.2 614.9 ms
+0 g
+(    ret.)109.2 614.9 ms
+0.498 0.125 0.498 r
+(push_back)s
+0 g
+(\(c+a+b*\(-B-)s
+0.498 0.125 0.498 r
+(sqrt)s
+0 g
+(\(D\)\)/A\);)s
+0.498 0.125 0.498 r
+(   151)61.2 604.9 ms
+0 g
+(  )109.2 604.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( ret;)s
+0.498 0.125 0.498 r
+(   152)61.2 594.9 ms
+0 g
+(})109.2 594.9 ms
+0.498 0.125 0.498 r
+(   153)61.2 584.9 ms
+(   154)61.2 574.9 ms
+0 0.125 0.251 r
+(// compute intersection of circle centered at a with radius r)109.2 574.9 ms
+0.498 0.125 0.498 r
+(   155)61.2 564.9 ms
+0 0.125 0.251 r
+(// with circle centered at b with radius R)109.2 564.9 ms
+0.498 0.125 0.498 r
+(   156)61.2 554.9 ms
+(vector)109.2 554.9 ms
+0 g
+(<PT> )s
+0.498 0.125 0.498 r
+(CircleCircleIntersection)s
+0 g
+(\(PT a, PT b, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( r, )s
+0.498 0.125 0.498 r
+(double)s
+0 g
+( R\) {)s
+0.498 0.125 0.498 r
+(   157)61.2 544.9 ms
+0 g
+(  )109.2 544.9 ms
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> ret;)s
+0.498 0.125 0.498 r
+(   158)61.2 534.9 ms
+0 g
+(  )109.2 534.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( d = )s
+0.498 0.125 0.498 r
+(sqrt)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(dist2)s
+0 g
+(\(a, b\)\);)s
+0.498 0.125 0.498 r
+(   159)61.2 524.9 ms
+0 g
+(  )109.2 524.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(d > r+R || d+)s
+0.498 0.125 0.498 r
+(min)s
+0 g
+(\(r, R\) < )s
+0.498 0.125 0.498 r
+(max)s
+0 g
+(\(r, R\)\) )s
+0.498 0.498 0 r
+(return)s
+0 g
+( ret;)s
+0.498 0.125 0.498 r
+(   160)61.2 514.9 ms
+0 g
+(  )109.2 514.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( x = \(d*d-R*R+r*r\)/\()s
+0.376 g
+(2)s
+0 g
+(*d\);)s
+0.498 0.125 0.498 r
+(   161)61.2 504.9 ms
+0 g
+(  )109.2 504.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( y = )s
+0.498 0.125 0.498 r
+(sqrt)s
+0 g
+(\(r*r-x*x\);)s
+0.498 0.125 0.498 r
+(   162)61.2 494.9 ms
+0 g
+(  PT v = \(b-a\)/d;)109.2 494.9 ms
+0.498 0.125 0.498 r
+(   163)61.2 484.9 ms
+0 g
+(  ret.)109.2 484.9 ms
+0.498 0.125 0.498 r
+(push_back)s
+0 g
+(\(a+v*x + )s
+0.498 0.125 0.498 r
+(RotateCCW90)s
+0 g
+(\(v\)*y\);)s
+0.498 0.125 0.498 r
+(   164)61.2 474.9 ms
+0 g
+(  )109.2 474.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(y > )s
+0.376 g
+(0)s
+0 g
+(\))s
+0.498 0.125 0.498 r
+(   165)61.2 464.9 ms
+0 g
+(    ret.)109.2 464.9 ms
+0.498 0.125 0.498 r
+(push_back)s
+0 g
+(\(a+v*x - )s
+0.498 0.125 0.498 r
+(RotateCCW90)s
+0 g
+(\(v\)*y\);)s
+0.498 0.125 0.498 r
+(   166)61.2 454.9 ms
+0 g
+(  )109.2 454.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( ret;)s
+0.498 0.125 0.498 r
+(   167)61.2 444.9 ms
+0 g
+(})109.2 444.9 ms
+0.498 0.125 0.498 r
+(   168)61.2 434.9 ms
+(   169)61.2 424.9 ms
+0 0.125 0.251 r
+(// This code computes the area or centroid of a \(possibly nonconvex\))109.2 424.9 ms
+0.498 0.125 0.498 r
+(   170)61.2 414.9 ms
+0 0.125 0.251 r
+(// polygon, assuming that the coordinates are listed in a clockwise or)109.2 414.9 ms
+0.498 0.125 0.498 r
+(   171)61.2 404.9 ms
+0 0.125 0.251 r
+(// counterclockwise fashion.  Note that the centroid is often known as)109.2 404.9 ms
+0.498 0.125 0.498 r
+(   172)61.2 394.9 ms
+0 0.125 0.251 r
+(// the "center of gravity" or "center of mass".)109.2 394.9 ms
+0.498 0.125 0.498 r
+(   173)61.2 384.9 ms
+(double)109.2 384.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(ComputeSignedArea)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> &p\) {)s
+0.498 0.125 0.498 r
+(   174)61.2 374.9 ms
+0 g
+(  )109.2 374.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( area = )s
+0.376 g
+(0)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   175)61.2 364.9 ms
+0 g
+(  )109.2 364.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\) {)s
+0.498 0.125 0.498 r
+(   176)61.2 354.9 ms
+0 g
+(    )109.2 354.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( j = \(i+)s
+0.376 g
+(1)s
+0 g
+(\) % p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\);)s
+0.498 0.125 0.498 r
+(   177)61.2 344.9 ms
+0 g
+(    area += p[i].x*p[j].y - p[j].x*p[i].y;)109.2 344.9 ms
+0.498 0.125 0.498 r
+(   178)61.2 334.9 ms
+0 g
+(  })109.2 334.9 ms
+0.498 0.125 0.498 r
+(   179)61.2 324.9 ms
+0 g
+(  )109.2 324.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( area / )s
+0.376 g
+(2.0)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   180)61.2 314.9 ms
+0 g
+(})109.2 314.9 ms
+0.498 0.125 0.498 r
+(   181)61.2 304.9 ms
+(   182)61.2 294.9 ms
+(double)109.2 294.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(ComputeArea)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> &p\) {)s
+0.498 0.125 0.498 r
+(   183)61.2 284.9 ms
+0 g
+(  )109.2 284.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(fabs)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(ComputeSignedArea)s
+0 g
+(\(p\)\);)s
+0.498 0.125 0.498 r
+(   184)61.2 274.9 ms
+0 g
+(})109.2 274.9 ms
+0.498 0.125 0.498 r
+(   185)61.2 264.9 ms
+(   186)61.2 254.9 ms
+0 g
+(PT )109.2 254.9 ms
+0.498 0.125 0.498 r
+(ComputeCentroid)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> &p\) {)s
+0.498 0.125 0.498 r
+(   187)61.2 244.9 ms
+0 g
+(  PT )109.2 244.9 ms
+0.498 0.125 0.498 r
+(c)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(   188)61.2 234.9 ms
+0 g
+(  )109.2 234.9 ms
+0.498 0.125 0.498 r
+(double)s
+0 g
+( scale = )s
+0.376 g
+(6.0)s
+0 g
+( * )s
+0.498 0.125 0.498 r
+(ComputeSignedArea)s
+0 g
+(\(p\);)s
+0.498 0.125 0.498 r
+(   189)61.2 224.9 ms
+0 g
+(  )109.2 224.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\){)s
+0.498 0.125 0.498 r
+(   190)61.2 214.9 ms
+0 g
+(    )109.2 214.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( j = \(i+)s
+0.376 g
+(1)s
+0 g
+(\) % p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\);)s
+0.498 0.125 0.498 r
+(   191)61.2 204.9 ms
+0 g
+(    c = c + \(p[i]+p[j]\)*\(p[i].x*p[j].y - p[j].x*p[i].y\);)109.2 204.9 ms
+0.498 0.125 0.498 r
+(   192)61.2 194.9 ms
+0 g
+(  })109.2 194.9 ms
+0.498 0.125 0.498 r
+(   193)61.2 184.9 ms
+0 g
+(  )109.2 184.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( c / scale;)s
+0.498 0.125 0.498 r
+(   194)61.2 174.9 ms
+0 g
+(})109.2 174.9 ms
+0.498 0.125 0.498 r
+(   195)61.2 164.9 ms
+(   196)61.2 154.9 ms
+0 0.125 0.251 r
+(// tests whether or not a given polygon \(in CW or CCW order\) is simple)109.2 154.9 ms
+0.498 0.125 0.498 r
+(   197)61.2 144.9 ms
+(bool)109.2 144.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(IsSimple)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(const)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> &p\) {)s
+0.498 0.125 0.498 r
+(   198)61.2 134.9 ms
+0 g
+(  )109.2 134.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\) {)s
+0.498 0.125 0.498 r
+(   199)61.2 124.9 ms
+0 g
+(    )109.2 124.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( k = i+)s
+0.376 g
+(1)s
+0 g
+(; k < p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); k++\) {)s
+0.498 0.125 0.498 r
+(   200)61.2 114.9 ms
+0 g
+(      )109.2 114.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( j = \(i+)s
+0.376 g
+(1)s
+0 g
+(\) % p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\);)s
+0.498 0.125 0.498 r
+(   201)61.2 104.9 ms
+0 g
+(      )109.2 104.9 ms
+0.498 0.125 0.498 r
+(int)s
+0 g
+( l = \(k+)s
+0.376 g
+(1)s
+0 g
+(\) % p.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\);)s
+0.498 0.125 0.498 r
+(   202)61.2 94.9 ms
+0 g
+(      )109.2 94.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \(i == l || j == k\) )s
+0.498 0.498 0 r
+(continue)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   203)61.2 84.9 ms
+0 g
+(      )109.2 84.9 ms
+0.498 0.498 0 r
+(if)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(SegmentsIntersect)s
+0 g
+(\(p[i], p[j], p[k], p[l]\)\) )s
+0.498 0.125 0.498 r
+(   204)61.2 74.9 ms
+0 g
+(        )109.2 74.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(false)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   205)61.2 64.9 ms
+0 g
+(    })109.2 64.9 ms
+0.498 0.125 0.498 r
+(   206)61.2 54.9 ms
+0 g
+(  })109.2 54.9 ms
+0.498 0.125 0.498 r
+(   207)61.2 44.9 ms
+0 g
+(  )109.2 44.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(true)s
+0 g
+(;)s
+re sp
+%%PageTrailer
+%%Page: 4 4
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(geoalgorithms.cpp                                                               Page 4)61.2 744.9 ms
+F0 sf
+0.498 0.125 0.498 r
+(   208)61.2 724.9 ms
+0 g
+(})109.2 724.9 ms
+0.498 0.125 0.498 r
+(   209)61.2 714.9 ms
+(   210)61.2 704.9 ms
+(int)109.2 704.9 ms
+0 g
+( )s
+0.498 0.125 0.498 r
+(main)s
+0 g
+(\(\) {)s
+0.498 0.125 0.498 r
+(   211)61.2 694.9 ms
+0 g
+(  )109.2 694.9 ms
+0.498 0.125 0.498 r
+(   212)61.2 684.9 ms
+0 g
+(  )109.2 684.9 ms
+0 0.125 0.251 r
+(// expected: \(-5,2\))s
+0.498 0.125 0.498 r
+(   213)61.2 674.9 ms
+0 g
+(  )109.2 674.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(RotateCCW90)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   214)61.2 664.9 ms
+0 g
+(  )109.2 664.9 ms
+0.498 0.125 0.498 r
+(   215)61.2 654.9 ms
+0 g
+(  )109.2 654.9 ms
+0 0.125 0.251 r
+(// expected: \(5,-2\))s
+0.498 0.125 0.498 r
+(   216)61.2 644.9 ms
+0 g
+(  )109.2 644.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(RotateCW90)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   217)61.2 634.9 ms
+0 g
+(  )109.2 634.9 ms
+0.498 0.125 0.498 r
+(   218)61.2 624.9 ms
+0 g
+(  )109.2 624.9 ms
+0 0.125 0.251 r
+(// expected: \(-5,2\))s
+0.498 0.125 0.498 r
+(   219)61.2 614.9 ms
+0 g
+(  )109.2 614.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(RotateCCW)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\),)s
+0.376 g
+(M_PI)s
+0 g
+(/)s
+0.376 g
+(2)s
+0 g
+(\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   220)61.2 604.9 ms
+0 g
+(  )109.2 604.9 ms
+0.498 0.125 0.498 r
+(   221)61.2 594.9 ms
+0 g
+(  )109.2 594.9 ms
+0 0.125 0.251 r
+(// expected: \(5,2\))s
+0.498 0.125 0.498 r
+(   222)61.2 584.9 ms
+0 g
+(  )109.2 584.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(ProjectPointLine)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(-)s
+0.376 g
+(5)s
+0 g
+(,-)s
+0.376 g
+(2)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(10)s
+0 g
+(,)s
+0.376 g
+(4)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(7)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   223)61.2 574.9 ms
+0 g
+(  )109.2 574.9 ms
+0.498 0.125 0.498 r
+(   224)61.2 564.9 ms
+0 g
+(  )109.2 564.9 ms
+0 0.125 0.251 r
+(// expected: \(5,2\) \(7.5,3\) \(2.5,1\))s
+0.498 0.125 0.498 r
+(   225)61.2 554.9 ms
+0 g
+(  )109.2 554.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(ProjectPointSegment)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(-)s
+0.376 g
+(5)s
+0 g
+(,-)s
+0.376 g
+(2)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(10)s
+0 g
+(,)s
+0.376 g
+(4)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(7)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   226)61.2 544.9 ms
+0 g
+(       << )109.2 544.9 ms
+0.498 0.125 0.498 r
+(ProjectPointSegment)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(7.5)s
+0 g
+(,)s
+0.376 g
+(3)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(10)s
+0 g
+(,)s
+0.376 g
+(4)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(7)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   227)61.2 534.9 ms
+0 g
+(       << )109.2 534.9 ms
+0.498 0.125 0.498 r
+(ProjectPointSegment)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(-)s
+0.376 g
+(5)s
+0 g
+(,-)s
+0.376 g
+(2)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2.5)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(7)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   228)61.2 524.9 ms
+0 g
+(  )109.2 524.9 ms
+0.498 0.125 0.498 r
+(   229)61.2 514.9 ms
+0 g
+(  )109.2 514.9 ms
+0 0.125 0.251 r
+(// expected: 6.78903)s
+0.498 0.125 0.498 r
+(   230)61.2 504.9 ms
+0 g
+(  )109.2 504.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(DistancePointPlane)s
+0 g
+(\()s
+0.376 g
+(4)s
+0 g
+(,-)s
+0.376 g
+(4)s
+0 g
+(,)s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(2)s
+0 g
+(,-)s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(,-)s
+0.376 g
+(8)s
+0 g
+(\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   231)61.2 494.9 ms
+0 g
+(  )109.2 494.9 ms
+0.498 0.125 0.498 r
+(   232)61.2 484.9 ms
+0 g
+(  )109.2 484.9 ms
+0 0.125 0.251 r
+(// expected: 1 0 1)s
+0.498 0.125 0.498 r
+(   233)61.2 474.9 ms
+0 g
+(  )109.2 474.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(LinesParallel)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(4)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   234)61.2 464.9 ms
+0 g
+(       << )109.2 464.9 ms
+0.498 0.125 0.498 r
+(LinesParallel)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(4)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   235)61.2 454.9 ms
+0 g
+(       << )109.2 454.9 ms
+0.498 0.125 0.498 r
+(LinesParallel)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(5)s
+0 g
+(,)s
+0.376 g
+(9)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(7)s
+0 g
+(,)s
+0.376 g
+(13)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   236)61.2 444.9 ms
+0 g
+(  )109.2 444.9 ms
+0.498 0.125 0.498 r
+(   237)61.2 434.9 ms
+0 g
+(  )109.2 434.9 ms
+0 0.125 0.251 r
+(// expected: 0 0 1)s
+0.498 0.125 0.498 r
+(   238)61.2 424.9 ms
+0 g
+(  )109.2 424.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(LinesCollinear)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(4)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   239)61.2 414.9 ms
+0 g
+(       << )109.2 414.9 ms
+0.498 0.125 0.498 r
+(LinesCollinear)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(4)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   240)61.2 404.9 ms
+0 g
+(       << )109.2 404.9 ms
+0.498 0.125 0.498 r
+(LinesCollinear)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(5)s
+0 g
+(,)s
+0.376 g
+(9)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(7)s
+0 g
+(,)s
+0.376 g
+(13)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   241)61.2 394.9 ms
+0 g
+(  )109.2 394.9 ms
+0.498 0.125 0.498 r
+(   242)61.2 384.9 ms
+0 g
+(  )109.2 384.9 ms
+0 0.125 0.251 r
+(// expected: 1 1 1 0)s
+0.498 0.125 0.498 r
+(   243)61.2 374.9 ms
+0 g
+(  )109.2 374.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(SegmentsIntersect)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(4)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(-)s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(3)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   244)61.2 364.9 ms
+0 g
+(       << )109.2 364.9 ms
+0.498 0.125 0.498 r
+(SegmentsIntersect)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(4)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(4)s
+0 g
+(,)s
+0.376 g
+(3)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   245)61.2 354.9 ms
+0 g
+(       << )109.2 354.9 ms
+0.498 0.125 0.498 r
+(SegmentsIntersect)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(4)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,-)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(-)s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   246)61.2 344.9 ms
+0 g
+(       << )109.2 344.9 ms
+0.498 0.125 0.498 r
+(SegmentsIntersect)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(4)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(5)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(7)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   247)61.2 334.9 ms
+0 g
+(  )109.2 334.9 ms
+0.498 0.125 0.498 r
+(   248)61.2 324.9 ms
+0 g
+(  )109.2 324.9 ms
+0 0.125 0.251 r
+(// expected: \(1,2\))s
+0.498 0.125 0.498 r
+(   249)61.2 314.9 ms
+0 g
+(  )109.2 314.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(ComputeLineIntersection)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(4)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(-)s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(3)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)109.2 304.9 ms
+0.498 0.125 0.498 r
+(   250)61.2 294.9 ms
+0 g
+(  )109.2 294.9 ms
+0.498 0.125 0.498 r
+(   251)61.2 284.9 ms
+0 g
+(  )109.2 284.9 ms
+0 0.125 0.251 r
+(// expected: \(1,1\))s
+0.498 0.125 0.498 r
+(   252)61.2 274.9 ms
+0 g
+(  )109.2 274.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(ComputeCircleCenter)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\(-)s
+0.376 g
+(3)s
+0 g
+(,)s
+0.376 g
+(4)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(6)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(4)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   253)61.2 264.9 ms
+0 g
+(  )109.2 264.9 ms
+0.498 0.125 0.498 r
+(   254)61.2 254.9 ms
+0 g
+(  )109.2 254.9 ms
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> v; )s
+0.498 0.125 0.498 r
+(   255)61.2 244.9 ms
+0 g
+(  v.)109.2 244.9 ms
+0.498 0.125 0.498 r
+(push_back)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\)\);)s
+0.498 0.125 0.498 r
+(   256)61.2 234.9 ms
+0 g
+(  v.)109.2 234.9 ms
+0.498 0.125 0.498 r
+(push_back)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(5)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\)\);)s
+0.498 0.125 0.498 r
+(   257)61.2 224.9 ms
+0 g
+(  v.)109.2 224.9 ms
+0.498 0.125 0.498 r
+(push_back)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(5)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\);)s
+0.498 0.125 0.498 r
+(   258)61.2 214.9 ms
+0 g
+(  v.)109.2 214.9 ms
+0.498 0.125 0.498 r
+(push_back)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\);)s
+0.498 0.125 0.498 r
+(   259)61.2 204.9 ms
+0 g
+(  )109.2 204.9 ms
+0.498 0.125 0.498 r
+(   260)61.2 194.9 ms
+0 g
+(  )109.2 194.9 ms
+0 0.125 0.251 r
+(// expected: 1 1 1 0 0)s
+0.498 0.125 0.498 r
+(   261)61.2 184.9 ms
+0 g
+(  )109.2 184.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(PointInPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(2)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   262)61.2 174.9 ms
+0 g
+(       << )109.2 174.9 ms
+0.498 0.125 0.498 r
+(PointInPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   263)61.2 164.9 ms
+0 g
+(       << )109.2 164.9 ms
+0.498 0.125 0.498 r
+(PointInPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(2)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   264)61.2 154.9 ms
+0 g
+(       << )109.2 154.9 ms
+0.498 0.125 0.498 r
+(PointInPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(5)s
+0 g
+(,)s
+0.376 g
+(2)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   265)61.2 144.9 ms
+0 g
+(       << )109.2 144.9 ms
+0.498 0.125 0.498 r
+(PointInPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   266)61.2 134.9 ms
+0 g
+(  )109.2 134.9 ms
+0.498 0.125 0.498 r
+(   267)61.2 124.9 ms
+0 g
+(  )109.2 124.9 ms
+0 0.125 0.251 r
+(// expected: 0 1 1 1 1)s
+0.498 0.125 0.498 r
+(   268)61.2 114.9 ms
+0 g
+(  )109.2 114.9 ms
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(PointOnPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(2)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   269)61.2 104.9 ms
+0 g
+(       << )109.2 104.9 ms
+0.498 0.125 0.498 r
+(PointOnPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   270)61.2 94.9 ms
+0 g
+(       << )109.2 94.9 ms
+0.498 0.125 0.498 r
+(PointOnPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(2)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   271)61.2 84.9 ms
+0 g
+(       << )109.2 84.9 ms
+0.498 0.125 0.498 r
+(PointOnPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(5)s
+0 g
+(,)s
+0.376 g
+(2)s
+0 g
+(\)\) << " ")s
+0.498 0.125 0.498 r
+(   272)61.2 74.9 ms
+0 g
+(       << )109.2 74.9 ms
+0.498 0.125 0.498 r
+(PointOnPolygon)s
+0 g
+(\(v, )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\)\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   273)61.2 64.9 ms
+0 g
+(  )109.2 64.9 ms
+0.498 0.125 0.498 r
+(   274)61.2 54.9 ms
+0 g
+(  )109.2 54.9 ms
+0 0.125 0.251 r
+(// expected: \(1,6\))s
+0.498 0.125 0.498 r
+(   275)61.2 44.9 ms
+0 g
+(  )109.2 44.9 ms
+0 0.125 0.251 r
+(//           \(5,4\) \(4,5\))s
+re sp
+%%PageTrailer
+%%Page: 5 5
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(geoalgorithms.cpp                                                               Page 5)61.2 744.9 ms
+F0 sf
+0.498 0.125 0.498 r
+(   276)61.2 724.9 ms
+0 g
+(  )109.2 724.9 ms
+0 0.125 0.251 r
+(//           blank line)s
+0.498 0.125 0.498 r
+(   277)61.2 714.9 ms
+0 g
+(  )109.2 714.9 ms
+0 0.125 0.251 r
+(//           \(4,5\) \(5,4\))s
+0.498 0.125 0.498 r
+(   278)61.2 704.9 ms
+0 g
+(  )109.2 704.9 ms
+0 0.125 0.251 r
+(//           blank line)s
+0.498 0.125 0.498 r
+(   279)61.2 694.9 ms
+0 g
+(  )109.2 694.9 ms
+0 0.125 0.251 r
+(//           \(4,5\) \(5,4\))s
+0.498 0.125 0.498 r
+(   280)61.2 684.9 ms
+0 g
+(  )109.2 684.9 ms
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> u = )s
+0.498 0.125 0.498 r
+(CircleLineIntersection)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(6)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(2)s
+0 g
+(,)s
+0.376 g
+(6)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.376 g
+(5)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(   281)61.2 674.9 ms
+0 g
+(  )109.2 674.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < u.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\) )s
+0.376 g
+(cerr)s
+0 g
+( << u[i] << " "; )s
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   282)61.2 664.9 ms
+0 g
+(  u = )109.2 664.9 ms
+0.498 0.125 0.498 r
+(CircleLineIntersection)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(9)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(9)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.376 g
+(5)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(   283)61.2 654.9 ms
+0 g
+(  )109.2 654.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < u.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\) )s
+0.376 g
+(cerr)s
+0 g
+( << u[i] << " "; )s
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   284)61.2 644.9 ms
+0 g
+(  u = )109.2 644.9 ms
+0.498 0.125 0.498 r
+(CircleCircleIntersection)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(10)s
+0 g
+(,)s
+0.376 g
+(10)s
+0 g
+(\), )s
+0.376 g
+(5)s
+0 g
+(, )s
+0.376 g
+(5)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(   285)61.2 634.9 ms
+0 g
+(  )109.2 634.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < u.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\) )s
+0.376 g
+(cerr)s
+0 g
+( << u[i] << " "; )s
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   286)61.2 624.9 ms
+0 g
+(  u = )109.2 624.9 ms
+0.498 0.125 0.498 r
+(CircleCircleIntersection)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(8)s
+0 g
+(,)s
+0.376 g
+(8)s
+0 g
+(\), )s
+0.376 g
+(5)s
+0 g
+(, )s
+0.376 g
+(5)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(   287)61.2 614.9 ms
+0 g
+(  )109.2 614.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < u.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\) )s
+0.376 g
+(cerr)s
+0 g
+( << u[i] << " "; )s
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   288)61.2 604.9 ms
+0 g
+(  u = )109.2 604.9 ms
+0.498 0.125 0.498 r
+(CircleCircleIntersection)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(4.5)s
+0 g
+(,)s
+0.376 g
+(4.5)s
+0 g
+(\), )s
+0.376 g
+(10)s
+0 g
+(, )s
+0.498 0.125 0.498 r
+(sqrt)s
+0 g
+(\()s
+0.376 g
+(2.0)s
+0 g
+(\)/)s
+0.376 g
+(2.0)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(   289)61.2 594.9 ms
+0 g
+(  )109.2 594.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < u.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\) )s
+0.376 g
+(cerr)s
+0 g
+( << u[i] << " "; )s
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   290)61.2 584.9 ms
+0 g
+(  u = )109.2 584.9 ms
+0.498 0.125 0.498 r
+(CircleCircleIntersection)s
+0 g
+(\()s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(4.5)s
+0 g
+(,)s
+0.376 g
+(4.5)s
+0 g
+(\), )s
+0.376 g
+(5)s
+0 g
+(, )s
+0.498 0.125 0.498 r
+(sqrt)s
+0 g
+(\()s
+0.376 g
+(2.0)s
+0 g
+(\)/)s
+0.376 g
+(2.0)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(   291)61.2 574.9 ms
+0 g
+(  )109.2 574.9 ms
+0.498 0.498 0 r
+(for)s
+0 g
+( \()s
+0.498 0.125 0.498 r
+(int)s
+0 g
+( i = )s
+0.376 g
+(0)s
+0 g
+(; i < u.)s
+0.498 0.125 0.498 r
+(size)s
+0 g
+(\(\); i++\) )s
+0.376 g
+(cerr)s
+0 g
+( << u[i] << " "; )s
+0.376 g
+(cerr)s
+0 g
+( << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   292)61.2 564.9 ms
+0 g
+(  )109.2 564.9 ms
+0.498 0.125 0.498 r
+(   293)61.2 554.9 ms
+0 g
+(  )109.2 554.9 ms
+0 0.125 0.251 r
+(// area should be 5.0)s
+0.498 0.125 0.498 r
+(   294)61.2 544.9 ms
+0 g
+(  )109.2 544.9 ms
+0 0.125 0.251 r
+(// centroid should be \(1.1666666, 1.166666\))s
+0.498 0.125 0.498 r
+(   295)61.2 534.9 ms
+0 g
+(  PT pa[] = { )109.2 534.9 ms
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(5)s
+0 g
+(,)s
+0.376 g
+(0)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(1)s
+0 g
+(,)s
+0.376 g
+(1)s
+0 g
+(\), )s
+0.498 0.125 0.498 r
+(PT)s
+0 g
+(\()s
+0.376 g
+(0)s
+0 g
+(,)s
+0.376 g
+(5)s
+0 g
+(\) };)s
+0.498 0.125 0.498 r
+(   296)61.2 524.9 ms
+0 g
+(  )109.2 524.9 ms
+0.498 0.125 0.498 r
+(vector)s
+0 g
+(<PT> )s
+0.498 0.125 0.498 r
+(p)s
+0 g
+(\(pa, pa+)s
+0.376 g
+(4)s
+0 g
+(\);)s
+0.498 0.125 0.498 r
+(   297)61.2 514.9 ms
+0 g
+(  PT c = )109.2 514.9 ms
+0.498 0.125 0.498 r
+(ComputeCentroid)s
+0 g
+(\(p\);)s
+0.498 0.125 0.498 r
+(   298)61.2 504.9 ms
+0 g
+(  )109.2 504.9 ms
+0.376 g
+(cerr)s
+0 g
+( << "Area: " << )s
+0.498 0.125 0.498 r
+(ComputeArea)s
+0 g
+(\(p\) << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   299)61.2 494.9 ms
+0 g
+(  )109.2 494.9 ms
+0.376 g
+(cerr)s
+0 g
+( << "Centroid: " << c << )s
+0.498 0.125 0.498 r
+(endl)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   300)61.2 484.9 ms
+0 g
+(  )109.2 484.9 ms
+0.498 0.125 0.498 r
+(   301)61.2 474.9 ms
+0 g
+(  )109.2 474.9 ms
+0.498 0.498 0 r
+(return)s
+0 g
+( )s
+0.376 g
+(0)s
+0 g
+(;)s
+0.498 0.125 0.498 r
+(   302)61.2 464.9 ms
+0 g
+(})109.2 464.9 ms
+re sp
+%%PageTrailer
+%%Trailer
+%%Pages: 5
+%%EOF
+
