@@ -9,6 +9,8 @@
 \usepackage{graphicx}
 \usepackage{footnote}
 \usepackage{enumitem}
+\usepackage{fancyhdr}
+
 \makesavenoteenv{tabular}
 \makesavenoteenv{table}
 
@@ -45,10 +47,14 @@
 
 \lstset{style = mystyle}
 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Yicheng Wang}
+\lhead{C++ Basics}
+
 \begin{document}
 {\catcode`?=\active
 \def?!#1!{\footnote{#1}}
-
 \section*{C++ Basics}
 \subsection*{Structs and Class}
 
@@ -314,7 +320,27 @@ Make a set and copy the values from begin to end.
 \end{table}
 
 Adapted from \url{http://www.cs.northwestern.edu/~riesbeck/programming/c++/stl-summary.html}
-\newpage
+
+\subsection*{Using Lambda Functions as Comparisons}
+Usually comparisons call for a class, but that's annoying, below is an example
+of how to use lambda function to get around it.
+\begin{lstlisting}[language=C++]
+using namespace std;
+
+auto comparison = [](int a, int b) {return a > b;};
+typedef set<int, decltype(comparison)> sint;
+
+int main(int argc, char *argv[]) {
+    sint A(comparison);
+    int N = 1;
+    while (N) {
+        cin >> N;
+        auto print_bool = [](int b) {return b == 0 ? "False" : "True";};
+        cout << print_bool(A.insert(N).second) << '\n';
+    }
+    return 0;
+}
+\end{lstlisting}
 \textbf{Choosing the Right Container}
 \begin{figure}[h]
     \centering
@@ -322,4 +348,58 @@ Adapted from \url{http://www.cs.northwestern.edu/~riesbeck/programming/c++/stl-s
 \end{figure}
 \newpage
 \subsection*{Algorithms}
+\begin{lstlisting}[language=c++]
+#include <algorithm>
+// almost all of these modify on containers with c.begin(), c.end()
+// let us first create a vector!
+vector<int> v(10);
+// fill - fills the vector, O(n)
+// this fills the vector with the value 10
+fill(v.begin(), v.end(), 10);
+// this fills the length - 2 with the value 5
+fill(v.begin(), v.end() - 2, 5);
+
+// find - returns the iterator to the first object with value v
+// returns .end() if none found
+auto it = find(v.begin(), v.end(), 5);
+// find_if - returns the iterator to the first object satisfying
+// condition
+// the following returns the iterator to the first even number
+auto it = find(v.begin(), v.end(), [](int i) {return i % 2 == 0;});
+
+// count - returns the number of objects w/ value
+int N = count(v.begin(), v.end(), 5);
+// count_if - returns the number of objects satisfying a condition
+int N = count_if(v.begin(), v.end(), [](int i) {return i % 2 == 0;});
+
+// search - searches a subsequence within a bigger sequence
+// returns an iterator to the beginning of the subsequence
+// O(mn) where m and n are the lengths of the target and source
+int target[] = {5,5,5};
+auto it = search(v.begin(), v.end(), target.begin(), target.end());
+
+// sort - sorts the range according to comparison function
+// if less than sorts lowest -> highest
+// if more than sorts highest -> lowest
+// the following sorts lowest -> highest
+// O(N log N)
+sort(v.begin(), v.end(), [](int a, int b) {return a < b};);
+
+// partition - moves the content around such that elements satisfying
+// the precondition comes before elements that don't
+// O(N)
+// the following puts the 10's in front of the 5's
+partition(v.begin(), v.end(), [](int a) {return a > 10;});
+
+// following are based on binary searches on a *sorted* container
+// lower_bound - returns iterator to the lower bound of the value
+// upper_bound - returns iterator to the upper bound of the value
+// equal_range - return <lower_bound, upper_bound>
+// binary_search - returns true if the value is found
+// all of these are O(log N)
+auto it_l = lower_bound(v.begin(), v.end(), 7);
+auto it_u = uppere_bound(v.begin(), v.end(), 7);
+auto range = equal_range(v.begin(), v.end(), 7);
+bool contains7 = binary_search(v.begin(), v.end(), 7, less<int>);
+\end{lstlisting}
 \end{document}
